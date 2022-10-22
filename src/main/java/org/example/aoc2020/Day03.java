@@ -1,58 +1,57 @@
 package org.example.aoc2020;
 
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-class Day02 extends AbstractAoC2020<Long, List<Day02.PasswordValidation>> {
-
-    protected record PasswordValidation(int lowerBound, int upperBound, char letter, String password) {
-    }
+class Day03 extends AbstractAoC2020<Long, char[][]> {
 
     @Override
-    protected List<PasswordValidation> parseInput(String strInput) {
-
-        final Pattern pattern = Pattern.compile("(\\d+)-(\\d+) (\\w): (\\w+)");
+    protected char[][] parseInput(String strInput) {
 
         return strInput.lines()
-                .map(pattern::matcher)
-                .filter(Matcher::matches)
-                .map(m -> new PasswordValidation(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2)), m.group(3).charAt(0), m.group(4)))
-                .toList();
+                .map(String::toCharArray)
+                .toArray(char[][]::new);
     }
 
     @Override
-    protected Long partOne(List<PasswordValidation> input) {
+    protected Long partOne(char[][] input) {
 
-        return input.stream()
-                .filter(passwordValidation -> {
-                    final long count = passwordValidation.password.chars()
-                            .filter(c -> c == passwordValidation.letter)
-                            .count();
-
-                    return count >= passwordValidation.lowerBound && count <= passwordValidation.upperBound;
-                })
-                .count();
+        return calculateNumberOfTrees(input, 3, 1);
     }
 
     @Override
-    protected Long partTwo(List<PasswordValidation> input) {
+    protected Long partTwo(char[][] input) {
 
-        return input.stream()
-                .filter(passwordValidation -> {
+        return calculateNumberOfTrees(input, 1, 1) *
+                calculateNumberOfTrees(input, 3, 1) *
+                calculateNumberOfTrees(input, 5, 1) *
+                calculateNumberOfTrees(input, 7, 1) *
+                calculateNumberOfTrees(input, 1, 2);
+    }
 
-                    final char firstPosition = passwordValidation.password.charAt(passwordValidation.lowerBound - 1);
-                    final char secondPosition = passwordValidation.password.charAt(passwordValidation.upperBound - 1);
+    private long calculateNumberOfTrees(char[][] input, int right, int down) {
 
-                    return firstPosition != secondPosition &&
-                            (firstPosition == passwordValidation.letter || secondPosition == passwordValidation.letter);
-                })
-                .count();
+        int nTrees = 0;
+        int i = 0;
+        int j = 0;
+
+        while (i < input.length - 1) {
+
+            i += down;
+
+            final char[] row = input[i];
+
+            j = (j + right) % row.length;
+
+            if (row[j] == '#') {
+
+                nTrees++;
+            }
+        }
+
+        return nTrees;
     }
 
     @Override
     protected String getDay() {
 
-        return "day02";
+        return "day03";
     }
 }

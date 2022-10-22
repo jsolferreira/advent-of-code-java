@@ -1,165 +1,40 @@
-package org.example.aoc2016;
+package org.example.aoc2020;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.IntStream;
 
-class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
-
-    private enum Direction {
-        R,
-        L
-    }
-
-    private enum Cardinal {
-        N,
-        E,
-        S,
-        W;
-
-        public Cardinal rotate(Direction direction) {
-            return switch (direction) {
-                case R -> switch (this) {
-                    case N -> Cardinal.E;
-                    case E -> Cardinal.S;
-                    case S -> Cardinal.W;
-                    case W -> Cardinal.N;
-                };
-                case L -> switch (this) {
-                    case N -> Cardinal.W;
-                    case E -> Cardinal.N;
-                    case S -> Cardinal.E;
-                    case W -> Cardinal.S;
-                };
-            };
-        }
-    }
-
-    protected record Instruction(Direction direction, int nBlocks) {
-    }
-
-    private record Location(int i, int j) {
-    }
+class Day01 extends AbstractAoC2020<Integer, List<Integer>> {
 
     @Override
-    protected List<Instruction> parseInput(String strInput) {
+    protected List<Integer> parseInput(String strInput) {
 
-        return Arrays.stream(strInput.split(", "))
-                .map(i -> new Instruction(Direction.valueOf(i.substring(0, 1)),
-                        Integer.parseInt(i.substring(1))))
+        return strInput.lines()
+                .map(Integer::parseInt)
                 .toList();
     }
 
     @Override
-    protected Integer partOne(List<Instruction> input) {
+    protected Integer partOne(List<Integer> input) {
 
-        int i = 0;
-        int j = 0;
-        Cardinal facing = Cardinal.N;
-
-        for (Instruction instruction : input) {
-
-            facing = facing.rotate(instruction.direction);
-
-            switch (facing) {
-                case N -> j += instruction.nBlocks;
-                case E -> i += instruction.nBlocks;
-                case S -> j -= instruction.nBlocks;
-                case W -> i -= instruction.nBlocks;
-            }
-        }
-
-        return Math.abs(i) + Math.abs(j);
+        return IntStream.range(0, input.size())
+                .flatMap(i -> IntStream.range(i + 1, input.size())
+                        .filter(j -> input.get(i) + input.get(j) == 2020)
+                        .map(j -> input.get(i) * input.get(j)))
+                .findFirst()
+                .orElseThrow();
     }
 
     @Override
-    protected Integer partTwo(List<Instruction> input) {
+    protected Integer partTwo(List<Integer> input) {
 
-        final HashSet<Location> visitedLocations = new HashSet<>();
-
-        int i = 0;
-        int j = 0;
-        Cardinal facing = Cardinal.N;
-
-        visitedLocations.add(new Location(i, j));
-
-        for (Instruction instruction : input) {
-
-            facing = facing.rotate(instruction.direction);
-
-            switch (facing) {
-                case N -> {
-                    int blocks = 1;
-
-                    while (blocks <= instruction.nBlocks) {
-
-                        if (checkIfLocationIsAlreadyVisited(visitedLocations, i, ++j)) {
-
-                            return Math.abs(i) + Math.abs(j);
-                        }
-
-                        blocks++;
-                    }
-                }
-                case E -> {
-                    int blocks = 1;
-
-                    while (blocks <= instruction.nBlocks) {
-
-                        if (checkIfLocationIsAlreadyVisited(visitedLocations, ++i, j)) {
-
-                            return Math.abs(i) + Math.abs(j);
-                        }
-
-                        blocks++;
-                    }
-                }
-                case S -> {
-                    int blocks = 1;
-
-                    while (blocks <= instruction.nBlocks) {
-
-                        if (checkIfLocationIsAlreadyVisited(visitedLocations, i, --j)) {
-
-                            return Math.abs(i) + Math.abs(j);
-                        }
-
-                        blocks++;
-                    }
-                }
-                case W -> {
-                    int blocks = 1;
-
-                    while (blocks <= instruction.nBlocks) {
-
-                        if (checkIfLocationIsAlreadyVisited(visitedLocations, --i, j)) {
-
-                            return Math.abs(i) + Math.abs(j);
-                        }
-
-                        blocks++;
-                    }
-                }
-            }
-        }
-
-        return Math.abs(i) + Math.abs(j);
-    }
-
-    private boolean checkIfLocationIsAlreadyVisited(Set<Location> visitedLocations, int i, int j) {
-
-        final Location location = new Location(i, j);
-
-        if (visitedLocations.contains(location)) {
-
-            return true;
-        } else {
-
-            visitedLocations.add(location);
-        }
-
-        return false;
+        return IntStream.range(0, input.size())
+                .flatMap(i -> IntStream.range(i + 1, input.size())
+                        .filter(j -> input.get(i) + input.get(j) < 2020)
+                        .flatMap(j -> IntStream.range(j + 1, input.size())
+                                .filter(k -> input.get(i) + input.get(j) + input.get(k) == 2020)
+                                .map(k -> input.get(i) * input.get(j) * input.get(k))))
+                .findFirst()
+                .orElseThrow();
     }
 
     @Override

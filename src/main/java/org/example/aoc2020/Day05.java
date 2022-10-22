@@ -1,170 +1,93 @@
 package org.example.aoc2020;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.Function;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
-class Day04 extends AbstractAoC2020<Long, List<Day04.Passport>> {
+class Day05 extends AbstractAoC2020<Integer, List<String>> {
 
-    protected record Passport(Map<String, String> fields) {}
-
-    private final Map<String, Function<String, Boolean>> passportFields = Map.ofEntries(
-            Map.entry("byr", Day04::validateByr),
-            Map.entry("iyr", Day04::validateIyr),
-            Map.entry("eyr", Day04::validateEyr),
-            Map.entry("hgt", Day04::validateHgt),
-            Map.entry("hcl", Day04::validateHcl),
-            Map.entry("ecl", Day04::validateEcl),
-            Map.entry("pid", Day04::validatePid)
-    );
-
-    private final Set<String> notRequiredPassportFields = Set.of("cid");
-
-    private final static Pattern hgtPattern = Pattern.compile("(\\d+)(cm|in)");
-
-    private final static Pattern hclPattern = Pattern.compile("#(\\d|[a-f]){6}");
-
-    private final static Pattern pidPattern = Pattern.compile("\\d{9}");
-
-    private final static Set<String> eyeColors = Set.of("amb",
-                                                        "blu",
-                                                        "brn",
-                                                        "gry",
-                                                        "grn",
-                                                        "hzl",
-                                                        "oth");
+    private record Range(int lowerBound, int upperBound) {
+    }
 
     @Override
-    protected List<Day04.Passport> parseInput(String strInput) {
+    protected List<String> parseInput(String strInput) {
 
-        return strInput.lines()
-                .<List<Map<String, String>>>reduce(new ArrayList<>(), (acc, val) -> {
+        return strInput.lines().toList();
+    }
 
-                    if (val.isBlank()) {
+    @Override
+    protected Integer partOne(List<String> input) {
 
-                        acc.add(new HashMap<>());
-                    } else {
+        return input.stream()
+                .mapToInt(seat -> {
 
-                        final Map<String, String> fields = Arrays.stream(val.split(" "))
-                                .map(f -> f.split(":"))
-                                .collect(Collectors.toMap(f -> f[0], f -> f[1]));
+                    final int row = findRow(seat);
+                    final int column = findColumn(seat);
 
-                        if (acc.isEmpty()) {
+                    return row * 8 + column;
+                })
+                .max()
+                .orElseThrow();
+    }
 
-                            acc.add(fields);
-                        } else {
+    @Override
+    protected Integer partTwo(List<String> input) {
 
-                            final int lastIndex = acc.size() - 1;
-                            final Map<String, String> lastElement = acc.get(lastIndex);
+        final List<Integer> seats = input.stream()
+                .map(seat -> {
 
-                            lastElement.putAll(fields);
-                        }
-                    }
+                    final int row = findRow(seat);
+                    final int column = findColumn(seat);
 
-                    return acc;
-                }, (a, b) -> new ArrayList<>()).stream()
-                .map(Passport::new)
+                    return row * 8 + column;
+                })
+                .sorted()
                 .toList();
+
+        for (int i = 0; i < seats.size() - 2; i++) {
+
+            if (seats.get(i) != seats.get(i + 1) - 1) {
+
+                return seats.get(i + 1) - 1;
+            }
+        }
+
+        return 0;
     }
 
-    @Override
-    protected Long partOne(List<Day04.Passport> input) {
+    private int findRow(String seat) {
 
-        return input.stream()
-                .filter(this::passportHasAllRequiredFields)
-                .count();
+        return seat.substring(0, 7)
+                .chars()
+                .mapToObj(c -> (char) c)
+                .reduce(new Range(0, 127),
+                        (acc, val) -> val == 'F' ? lowerHalf(acc) : upperHalf(acc),
+                        (a, b) -> new Range(-1, -1))
+                .lowerBound;
     }
 
-    @Override
-    protected Long partTwo(List<Day04.Passport> input) {
+    private int findColumn(String seat) {
 
-        return input.stream()
-                .filter(passport -> passportHasAllRequiredFields(passport) && passportHasValidValues(passport))
-                .count();
+        return seat.substring(7)
+                .chars()
+                .mapToObj(c -> (char) c)
+                .reduce(new Range(0, 7),
+                        (acc, val) -> val == 'L' ? lowerHalf(acc) : upperHalf(acc),
+                        (a, b) -> new Range(-1, -1))
+                .lowerBound;
     }
 
-    private boolean passportHasAllRequiredFields(Passport passport) {
+    private Range lowerHalf(Range range) {
 
-        return passport.fields().keySet().containsAll(this.passportFields.keySet());
+        return new Range(range.lowerBound, (range.lowerBound + range.upperBound) / 2);
     }
 
-    private boolean passportHasValidValues(Passport passport) {
+    private Range upperHalf(Range range) {
 
-        return passport.fields
-                .entrySet()
-                .stream()
-                .filter(entry -> !notRequiredPassportFields.contains(entry.getKey()))
-                .allMatch(entry -> this.passportFields.get(entry.getKey()).apply(entry.getValue()));
+        return new Range((int) Math.ceil((float) (range.lowerBound + range.upperBound) / 2), range.upperBound);
     }
 
     @Override
     protected String getDay() {
 
-        return "day04";
-    }
-
-    private static boolean validateByr(String s) {
-
-        final int n = Integer.parseInt(s);
-
-        return n >= 1920 && n <= 2002;
-    }
-
-    private static boolean validateIyr(String s) {
-
-        final int n = Integer.parseInt(s);
-
-        return n >= 2010 && n <= 2020;
-    }
-
-    private static boolean validateEyr(String s) {
-
-        final int n = Integer.parseInt(s);
-
-        return n >= 2020 && n <= 2030;
-    }
-
-    private static boolean validateHgt(String s) {
-
-        final Matcher matcher = hgtPattern.matcher(s);
-
-        if (matcher.matches()) {
-
-            final int n = Integer.parseInt(matcher.group(1));
-            final String unit = matcher.group(2);
-
-            if (unit.equals("in")) {
-
-                return n >= 59 && n <= 76;
-            } else {
-
-                return n >= 150 && n <= 193;
-            }
-        } else {
-
-            return false;
-        }
-    }
-
-    private static boolean validateHcl(String s) {
-
-        return hclPattern.matcher(s).matches();
-    }
-
-    private static boolean validateEcl(String s) {
-
-        return eyeColors.contains(s);
-    }
-
-    private static boolean validatePid(String s) {
-
-        return pidPattern.matcher(s).matches();
+        return "day05";
     }
 }

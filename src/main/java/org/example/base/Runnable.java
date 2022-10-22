@@ -2,7 +2,7 @@ package org.example.base;
 
 import java.io.IOException;
 
-public interface Base {
+public interface Runnable {
 
     void run() throws IOException;
 }

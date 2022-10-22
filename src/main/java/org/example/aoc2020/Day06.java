@@ -1,93 +1,70 @@
 package org.example.aoc2020;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-class Day05 extends AbstractAoC2020<Integer, List<String>> {
-
-    private record Range(int lowerBound, int upperBound) {
-    }
-
-    @Override
-    protected List<String> parseInput(String strInput) {
-
-        return strInput.lines().toList();
-    }
+class Day06 extends AbstractAoC2020<Integer, List<List<String>>> {
 
     @Override
-    protected Integer partOne(List<String> input) {
+    protected List<List<String>> parseInput(String strInput) {
 
-        return input.stream()
-                .mapToInt(seat -> {
-
-                    final int row = findRow(seat);
-                    final int column = findColumn(seat);
-
-                    return row * 8 + column;
-                })
-                .max()
-                .orElseThrow();
-    }
-
-    @Override
-    protected Integer partTwo(List<String> input) {
-
-        final List<Integer> seats = input.stream()
-                .map(seat -> {
-
-                    final int row = findRow(seat);
-                    final int column = findColumn(seat);
-
-                    return row * 8 + column;
-                })
-                .sorted()
+        return Arrays.stream(strInput.split("\\r\\n\\r\\n"))
+                .map(group -> Arrays.stream(group.split("\\r\\n")).toList())
                 .toList();
-
-        for (int i = 0; i < seats.size() - 2; i++) {
-
-            if (seats.get(i) != seats.get(i + 1) - 1) {
-
-                return seats.get(i + 1) - 1;
-            }
-        }
-
-        return 0;
     }
 
-    private int findRow(String seat) {
+    @Override
+    protected Integer partOne(List<List<String>> input) {
 
-        return seat.substring(0, 7)
-                .chars()
+        return input.stream().reduce(0,
+                                     (acc1, val1) -> acc1 + val1.stream()
+                                             .reduce(new HashSet<Character>(),
+                                                     (acc, val) -> {
+
+                                                         final Set<Character> collect = stringToCharacterSet(val);
+                                                         acc.addAll(collect);
+                                                         return acc;
+                                                     },
+                                                     (a, b) -> new HashSet<>()).size(),
+                                     Integer::sum);
+    }
+
+    @Override
+    protected Integer partTwo(List<List<String>> input) {
+
+        return input.stream().reduce(0,
+                                     (acc1, group) -> acc1 + group.stream()
+                                             .reduce((Set<Character>) null,
+                                                     (acc, val) -> {
+
+                                                         final Set<Character> collect = stringToCharacterSet(val);
+
+                                                         if (acc == null) {
+
+                                                             return collect;
+                                                         }
+
+                                                         return acc.stream()
+                                                                 .filter(collect::contains)
+                                                                 .collect(Collectors.toUnmodifiableSet());
+                                                     },
+                                                     (a, b) -> new HashSet<>()).size(),
+                                     Integer::sum);
+    }
+
+    private Set<Character> stringToCharacterSet(String s) {
+
+        return s.chars()
                 .mapToObj(c -> (char) c)
-                .reduce(new Range(0, 127),
-                        (acc, val) -> val == 'F' ? lowerHalf(acc) : upperHalf(acc),
-                        (a, b) -> new Range(-1, -1))
-                .lowerBound;
-    }
-
-    private int findColumn(String seat) {
-
-        return seat.substring(7)
-                .chars()
-                .mapToObj(c -> (char) c)
-                .reduce(new Range(0, 7),
-                        (acc, val) -> val == 'L' ? lowerHalf(acc) : upperHalf(acc),
-                        (a, b) -> new Range(-1, -1))
-                .lowerBound;
-    }
-
-    private Range lowerHalf(Range range) {
-
-        return new Range(range.lowerBound, (range.lowerBound + range.upperBound) / 2);
-    }
-
-    private Range upperHalf(Range range) {
-
-        return new Range((int) Math.ceil((float) (range.lowerBound + range.upperBound) / 2), range.upperBound);
+                .collect(Collectors.toUnmodifiableSet());
     }
 
     @Override
     protected String getDay() {
 
-        return "day05";
+        return "day06";
     }
 }

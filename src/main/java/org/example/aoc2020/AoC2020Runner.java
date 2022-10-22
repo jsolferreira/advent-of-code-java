@@ -1,15 +1,15 @@
 package org.example.aoc2020;
 
-import org.example.base.AbstractYear;
-import org.example.base.Base;
+import org.example.base.AbstractYearRunner;
+import org.example.base.Runnable;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public class AoC2020 extends AbstractYear {
+public class AoC2020Runner extends AbstractYearRunner {
 
     @Override
-    protected List<Class<? extends Base>> getDays() {
+    protected List<Class<? extends Runnable>> getDays() {
 
         return List.of(
                 Day01.class,
@@ -21,15 +21,16 @@ public class AoC2020 extends AbstractYear {
                 Day07.class,
                 Day08.class,
                 Day09.class,
-                Day10.class
+                Day10.class,
+                Day11.class
         );
     }
 
     @Override
-    protected Base newInstance(Class<? extends Base> c) throws NoSuchMethodException,
-                                                               InvocationTargetException,
-                                                               InstantiationException,
-                                                               IllegalAccessException {
+    protected Runnable newInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
+                                                                       InvocationTargetException,
+                                                                       InstantiationException,
+                                                                       IllegalAccessException {
 
         return c.getDeclaredConstructor().newInstance();
     }

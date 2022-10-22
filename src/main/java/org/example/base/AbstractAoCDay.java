@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-public abstract class AbstractDay<T, Q> implements Base {
+public abstract class AbstractAoCDay<T, Q> implements Runnable {
 
     private final String BASE = "input";
 
@@ -24,6 +24,7 @@ public abstract class AbstractDay<T, Q> implements Base {
         final Q input = parseInput(strInput);
 
         PART_ONE_RESULT = partOne(input);
+
         System.out.println("Part One: " + PART_ONE_RESULT);
         System.out.println("Part Two: " + partTwo(input));
     }

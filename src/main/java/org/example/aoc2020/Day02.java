@@ -1,69 +1,58 @@
 package org.example.aoc2020;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-class Day01 extends AbstractAoC2020<Integer, List<Integer>> {
+class Day02 extends AbstractAoC2020<Long, List<Day02.PasswordValidation>> {
+
+    protected record PasswordValidation(int lowerBound, int upperBound, char letter, String password) {
+    }
 
     @Override
-    protected List<Integer> parseInput(String strInput) {
+    protected List<PasswordValidation> parseInput(String strInput) {
+
+        final Pattern pattern = Pattern.compile("(\\d+)-(\\d+) (\\w): (\\w+)");
 
         return strInput.lines()
-                .map(Integer::parseInt)
+                .map(pattern::matcher)
+                .filter(Matcher::matches)
+                .map(m -> new PasswordValidation(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2)), m.group(3).charAt(0), m.group(4)))
                 .toList();
     }
 
     @Override
-    protected Integer partOne(List<Integer> input) {
+    protected Long partOne(List<PasswordValidation> input) {
 
-        for (int i = 0; i < input.size(); i++) {
+        return input.stream()
+                .filter(passwordValidation -> {
+                    final long count = passwordValidation.password.chars()
+                            .filter(c -> c == passwordValidation.letter)
+                            .count();
 
-            final int a = input.get(i);
-
-            for (int j = i + 1; j < input.size(); j++) {
-
-                final int b = input.get(j);
-
-                if (a + b == 2020) {
-
-                    return a * b;
-                }
-            }
-        }
-
-        return null;
+                    return count >= passwordValidation.lowerBound && count <= passwordValidation.upperBound;
+                })
+                .count();
     }
 
     @Override
-    protected Integer partTwo(List<Integer> input) {
+    protected Long partTwo(List<PasswordValidation> input) {
 
-        for (int i = 0; i < input.size(); i++) {
+        return input.stream()
+                .filter(passwordValidation -> {
 
-            final int a = input.get(i);
+                    final char firstPosition = passwordValidation.password.charAt(passwordValidation.lowerBound - 1);
+                    final char secondPosition = passwordValidation.password.charAt(passwordValidation.upperBound - 1);
 
-            for (int j = i + 1; j < input.size(); j++) {
-
-                final int b = input.get(j);
-
-                if (a + b >= 2020) continue;
-
-                for (int k = j + 1; k < input.size(); k++) {
-
-                    final int c = input.get(k);
-
-                    if (a + b + c == 2020) {
-
-                        return a * b * c;
-                    }
-                }
-            }
-        }
-
-        return null;
+                    return firstPosition != secondPosition &&
+                            (firstPosition == passwordValidation.letter || secondPosition == passwordValidation.letter);
+                })
+                .count();
     }
 
     @Override
     protected String getDay() {
 
-        return "day01";
+        return "day02";
     }
 }

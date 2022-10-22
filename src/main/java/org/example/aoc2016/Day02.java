@@ -1,170 +1,68 @@
 package org.example.aoc2016;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
+class Day02 extends AbstractAoC2016<String, List<List<Day02.Direction>>> {
 
-    private enum Direction {
-        R,
-        L
-    }
-
-    private enum Cardinal {
-        N,
-        E,
-        S,
-        W;
-
-        public Cardinal rotate(Direction direction) {
-            return switch (direction) {
-                case R -> switch (this) {
-                    case N -> Cardinal.E;
-                    case E -> Cardinal.S;
-                    case S -> Cardinal.W;
-                    case W -> Cardinal.N;
-                };
-                case L -> switch (this) {
-                    case N -> Cardinal.W;
-                    case E -> Cardinal.N;
-                    case S -> Cardinal.E;
-                    case W -> Cardinal.S;
-                };
-            };
-        }
-    }
-
-    protected record Instruction(Direction direction, int nBlocks) {
-    }
-
-    private record Location(int i, int j) {
+    protected enum Direction {
+        U,
+        D,
+        L,
+        R
     }
 
     @Override
-    protected List<Instruction> parseInput(String strInput) {
+    protected List<List<Direction>> parseInput(String strInput) {
 
-        return Arrays.stream(strInput.split(", "))
-                .map(i -> new Instruction(Direction.valueOf(i.substring(0, 1)),
-                        Integer.parseInt(i.substring(1))))
+        return Arrays.stream(strInput.split("\n"))
+                .map(line -> Arrays.stream(line.trim().split("")).map(Direction::valueOf).toList())
                 .toList();
     }
 
     @Override
-    protected Integer partOne(List<Instruction> input) {
+    protected String partOne(List<List<Direction>> input) {
 
-        int i = 0;
-        int j = 0;
-        Cardinal facing = Cardinal.N;
+        int i = 5;
+        StringBuilder result = new StringBuilder();
 
-        for (Instruction instruction : input) {
+        for (List<Direction> directions : input) {
 
-            facing = facing.rotate(instruction.direction);
-
-            switch (facing) {
-                case N -> j += instruction.nBlocks;
-                case E -> i += instruction.nBlocks;
-                case S -> j -= instruction.nBlocks;
-                case W -> i -= instruction.nBlocks;
+            for (Direction direction : directions) {
+                if (!outOfBounds(i, direction)) {
+                    switch (direction) {
+                        case U -> i -= 3;
+                        case D -> i += 3;
+                        case L -> i -= 1;
+                        case R -> i += 1;
+                    }
+                }
             }
+            result.append(i);
         }
 
-        return Math.abs(i) + Math.abs(j);
+        return result.toString();
+    }
+
+    private boolean outOfBounds(int n, Direction direction) {
+
+        if ((n == 1 || n == 2 || n == 3) && direction == Direction.U) {
+            return true;
+        } else if ((n == 7 || n == 8 || n == 9) && direction == Direction.D) {
+            return true;
+        } else if ((n == 1 || n == 4 || n == 7) && direction == Direction.L) {
+            return true;
+        } else return (n == 3 || n == 6 || n == 9) && direction == Direction.R;
     }
 
     @Override
-    protected Integer partTwo(List<Instruction> input) {
-
-        final HashSet<Location> visitedLocations = new HashSet<>();
-
-        int i = 0;
-        int j = 0;
-        Cardinal facing = Cardinal.N;
-
-        visitedLocations.add(new Location(i, j));
-
-        for (Instruction instruction : input) {
-
-            facing = facing.rotate(instruction.direction);
-
-            switch (facing) {
-                case N -> {
-                    int blocks = 1;
-
-                    while (blocks <= instruction.nBlocks) {
-
-                        if (checkIfLocationIsAlreadyVisited(visitedLocations, i, ++j)) {
-
-                            return Math.abs(i) + Math.abs(j);
-                        }
-
-                        blocks++;
-                    }
-                }
-                case E -> {
-                    int blocks = 1;
-
-                    while (blocks <= instruction.nBlocks) {
-
-                        if (checkIfLocationIsAlreadyVisited(visitedLocations, ++i, j)) {
-
-                            return Math.abs(i) + Math.abs(j);
-                        }
-
-                        blocks++;
-                    }
-                }
-                case S -> {
-                    int blocks = 1;
-
-                    while (blocks <= instruction.nBlocks) {
-
-                        if (checkIfLocationIsAlreadyVisited(visitedLocations, i, --j)) {
-
-                            return Math.abs(i) + Math.abs(j);
-                        }
-
-                        blocks++;
-                    }
-                }
-                case W -> {
-                    int blocks = 1;
-
-                    while (blocks <= instruction.nBlocks) {
-
-                        if (checkIfLocationIsAlreadyVisited(visitedLocations, --i, j)) {
-
-                            return Math.abs(i) + Math.abs(j);
-                        }
-
-                        blocks++;
-                    }
-                }
-            }
-        }
-
-        return Math.abs(i) + Math.abs(j);
-    }
-
-    private boolean checkIfLocationIsAlreadyVisited(Set<Location> visitedLocations, int i, int j) {
-
-        final Location location = new Location(i, j);
-
-        if (visitedLocations.contains(location)) {
-
-            return true;
-        } else {
-
-            visitedLocations.add(location);
-        }
-
-        return false;
+    protected String partTwo(List<List<Direction>> input) {
+        return null;
     }
 
     @Override
     protected String getDay() {
 
-        return "day01";
+        return "day02";
     }
 }

@@ -1,123 +1,68 @@
 package org.example.aoc2020;
 
-import java.util.HashSet;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.IntStream;
 
-class Day08 extends AbstractAoC2020<Integer, List<Day08.Instruction>> {
-
-    private enum Operation {
-        NOP,
-        JMP,
-        ACC
-    }
-
-    protected record Instruction(Operation op, int argument) {}
-
-    private static class LoopException extends Exception {
-
-        private final int accumulator;
-
-        public LoopException(int accumulator) {
-
-            this.accumulator = accumulator;
-        }
-
-        public int getAccumulator() {
-
-            return this.accumulator;
-        }
-    }
+class Day09 extends AbstractAoC2020<Long, List<Long>> {
 
     @Override
-    protected List<Instruction> parseInput(String strInput) {
+    protected List<Long> parseInput(String strInput) {
 
         return strInput.lines()
-                .map(line -> {
-                    final String[] split = line.split(" ");
-
-                    return new Instruction(Operation.valueOf(split[0].toUpperCase()), Integer.parseInt(split[1]));
-                })
+                .map(Long::parseLong)
                 .toList();
     }
 
     @Override
-    protected Integer partOne(List<Instruction> input) {
+    protected Long partOne(List<Long> input) {
 
-        try {
-            return run(input, 0);
-        } catch (LoopException e) {
-            return e.getAccumulator();
-        }
+        return IntStream.range(25, input.size())
+                .filter(i -> !validateNumber(input, i, input.get(i)))
+                .mapToObj(input::get)
+                .findFirst()
+                .orElseThrow();
+    }
+
+    private boolean validateNumber(List<Long> input, int index, long n) {
+
+        return IntStream.range(index - 25, index)
+                .anyMatch(i -> IntStream.range(i, index)
+                        .anyMatch(j -> input.get(i) + input.get(j) == n));
     }
 
     @Override
-    protected Integer partTwo(List<Instruction> input) {
+    protected Long partTwo(List<Long> input) {
 
-        int accumulator = 0;
+        final LinkedList<Long> contiguous = new LinkedList<>();
+        Long sum = 0L;
 
-        for (int i = 0; i < input.size(); ) {
+        for (int i = 1; i < input.size(); i++) {
+            final long a = input.get(i);
 
-            final Instruction instruction = input.get(i);
-
-            if (instruction.op != Operation.ACC) {
-                final int nextInstruction = instruction.op == Operation.NOP ? i + 1 : i + instruction.argument;
-                final int nextInstructionIfError = instruction.op == Operation.NOP ? i + instruction.argument : i + 1;
-
-                try {
-                    return accumulator + run(input, nextInstruction);
-                } catch (LoopException e) {
-                    try {
-                        return accumulator + run(input, nextInstructionIfError);
-                    } catch (LoopException ignore) {
-                    }
-                }
+            if (a == PART_ONE_RESULT) {
+                throw new RuntimeException();
             }
 
-            switch (instruction.op) {
-                case NOP -> i++;
-                case JMP -> i += instruction.argument;
-                case ACC -> {
-                    i++;
-                    accumulator += instruction.argument;
-                }
+            if (sum + a > PART_ONE_RESULT) {
+                final Long removed = contiguous.pop();
+                sum -= removed;
+                i--;
+            } else if (sum + a < PART_ONE_RESULT) {
+                contiguous.add(a);
+                sum += a;
+            } else {
+                return Collections.min(contiguous) + Collections.max(contiguous);
             }
         }
 
-        return accumulator;
-    }
-
-    private Integer run(List<Instruction> input, int i) throws LoopException {
-
-        int accumulator = 0;
-        final HashSet<Integer> visitedInstructions = new HashSet<>();
-
-        while (i < input.size()) {
-
-            if (visitedInstructions.contains(i)) {
-
-                throw new LoopException(accumulator);
-            }
-
-            visitedInstructions.add(i);
-
-            final Instruction instruction = input.get(i);
-
-            switch (instruction.op) {
-                case NOP -> i++;
-                case JMP -> i += instruction.argument;
-                case ACC -> {
-                    i++;
-                    accumulator += instruction.argument;
-                }
-            }
-        }
-
-        return accumulator;
+        throw new RuntimeException();
     }
 
     @Override
     protected String getDay() {
 
-        return "day08";
+        return "day09";
     }
 }

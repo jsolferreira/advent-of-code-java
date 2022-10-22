@@ -1,68 +1,96 @@
 package org.example.aoc2020;
 
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.IntStream;
 
-class Day09 extends AbstractAoC2020<Long, List<Long>> {
+class Day10 extends AbstractAoC2020<Long, List<Long>> {
 
     @Override
     protected List<Long> parseInput(String strInput) {
 
         return strInput.lines()
                 .map(Long::parseLong)
+                .sorted()
                 .toList();
     }
 
     @Override
     protected Long partOne(List<Long> input) {
 
-        return IntStream.range(25, input.size())
-                .filter(i -> !validateNumber(input, i, input.get(i)))
-                .mapToObj(input::get)
-                .findFirst()
-                .orElseThrow();
-    }
+        long prev = 0;
+        long sum1 = 0;
+        long sum3 = 1;
 
-    private boolean validateNumber(List<Long> input, int index, long n) {
+        for (Long aLong : input) {
 
-        return IntStream.range(index - 25, index)
-                .anyMatch(i -> IntStream.range(i, index)
-                        .anyMatch(j -> input.get(i) + input.get(j) == n));
+            if (aLong - prev == 1) {
+                sum1++;
+            } else if (aLong - prev == 3) {
+                sum3++;
+            }
+
+            prev = aLong;
+        }
+
+        return sum1 * sum3;
     }
 
     @Override
     protected Long partTwo(List<Long> input) {
 
-        final LinkedList<Long> contiguous = new LinkedList<>();
-        Long sum = 0L;
+        int g = numberOfConnections(0L, input.get(0), input.get(1), input.get(2));
+        long n = 1;
 
-        for (int i = 1; i < input.size(); i++) {
-            final long a = input.get(i);
+        for (int i = 0; i < input.size() - 3; i++) {
 
-            if (a == PART_ONE_RESULT) {
-                throw new RuntimeException();
-            }
+            int f = numberOfConnections(input.get(i), input.get(i + 1), input.get(i + 2), input.get(i + 3));
 
-            if (sum + a > PART_ONE_RESULT) {
-                final Long removed = contiguous.pop();
-                sum -= removed;
-                i--;
-            } else if (sum + a < PART_ONE_RESULT) {
-                contiguous.add(a);
-                sum += a;
-            } else {
-                return Collections.min(contiguous) + Collections.max(contiguous);
+            if (f == 1 && g != 0) {
+
+                if (g <= 2) {
+                    n = n * g;
+                } else {
+                    n = n * (g - 1);
+                }
+                g = 0;
+            } else if (f != 1) {
+                g += f;
             }
         }
 
-        throw new RuntimeException();
+        if (g <= 2) {
+            n = n * g;
+        } else {
+            n = n * (g + 1);
+        }
+
+        return n;
+    }
+
+    private int numberOfConnections(long a, long b, long c, long d) {
+
+        int connections = 0;
+
+        if (b - a == 1 || b - a == 2 || b - a == 3) {
+
+            connections++;
+        }
+
+        if (c - a == 1 || c - a == 2 || c - a == 3) {
+
+            connections++;
+        }
+
+        if (d - a == 1 || d - a == 2 || d - a == 3) {
+
+            connections++;
+        }
+
+        return connections;
     }
 
     @Override
     protected String getDay() {
 
-        return "day09";
+        return "day10";
     }
 }

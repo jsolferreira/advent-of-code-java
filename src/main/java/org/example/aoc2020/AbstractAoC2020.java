@@ -1,8 +1,8 @@
-package org.example.aoc2016;
+package org.example.aoc2020;
 
-import org.example.AbstractBase;
+import org.example.base.AbstractAoCDay;
 
-public abstract class AbstractAoC2016<T, Q> extends AbstractBase<T, Q> {
+public abstract class AbstractAoC2020<T, Q> extends AbstractAoCDay<T, Q> {
 
     protected abstract Q parseInput(String strInput);
 
@@ -13,6 +13,6 @@ public abstract class AbstractAoC2016<T, Q> extends AbstractBase<T, Q> {
     @Override
     protected String getYear() {
 
-        return "aoc2016";
+        return "aoc2020";
     }
 }
