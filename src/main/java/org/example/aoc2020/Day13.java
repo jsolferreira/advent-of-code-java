@@ -1,6 +1,5 @@
 package org.example.aoc2020;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
@@ -16,7 +15,7 @@ class Day13 extends AbstractAoC2020<Long, Day13.Note> {
     @Override
     protected Note parseInput(String strInput) {
 
-        final String[] split = strInput.split("\n");
+        final String[] split = strInput.split(System.lineSeparator());
 
         final long timestamp = Long.parseLong(split[0]);
         final String[] busIds = split[1].split(",");
@@ -54,22 +53,20 @@ class Day13 extends AbstractAoC2020<Long, Day13.Note> {
     @Override
     protected Long partTwo(Note input) {
 
-        long timestamp = input.timestamp;
-        final int firstBusId = input.buses.get(0).id;
+        return null;
 
-        while (true) {
+       /*
+       BigInteger timestamp = BigInteger.ZERO;
+        BigInteger jump = BigInteger.valueOf(input.buses.get(0).id);
 
-            long finalTimestamp = timestamp;
-            boolean z = input.buses.stream()
-                    .allMatch(bus -> (finalTimestamp + bus.position) % bus.id == 0);
-
-            if (z) {
-
-                return timestamp;
+        for (int i = 1; i < input.buses.size(); i++) {
+            final Bus bus = input.buses.get(i);
+            while (!timestamp.add(BigInteger.valueOf(bus.position)).mod(BigInteger.valueOf(bus.id)).equals(BigInteger.ZERO)) {
+                timestamp = timestamp.add(jump);
             }
-
-            timestamp += firstBusId - (timestamp % firstBusId);
+            jump = jump.multiply(BigInteger.valueOf(bus.id));
         }
+        return timestamp;*/
     }
 
     @Override
