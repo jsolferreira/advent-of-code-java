@@ -86,14 +86,19 @@ class Day14 extends AbstractAoC2020<Long, List<? extends Record>> {
 
         final String binary = Long.toBinaryString(value);
 
-        final long sum = IntStream.range(0, binary.length())
+        final long baseResult = IntStream.range(0, binary.length())
                 .filter(i -> mask.value.getOrDefault(i, binary.charAt(binary.length() - i - 1)) == '1')
                 .mapToLong(i -> (long) Math.pow(2, i))
                 .sum();
 
+        return applyRemainingMask(mask, binary, baseResult);
+    }
+
+    private long applyRemainingMask(Mask mask, String binary, long baseResult) {
+
         return mask.value.entrySet().stream()
                 .filter(entry -> entry.getValue() == '1' && entry.getKey() >= binary.length())
-                .reduce(sum,
+                .reduce(baseResult,
                         (acc, val) -> acc + (long) Math.pow(2, val.getKey()),
                         Long::sum);
     }
@@ -131,7 +136,7 @@ class Day14 extends AbstractAoC2020<Long, List<? extends Record>> {
 
         final String binary = Long.toBinaryString(address);
 
-        final long memoryAddress = IntStream.range(0, binary.length())
+        final long baseResult = IntStream.range(0, binary.length())
                 .filter(i -> {
                     if (mask.value.containsKey(i)) {
 
@@ -144,14 +149,10 @@ class Day14 extends AbstractAoC2020<Long, List<? extends Record>> {
                 .mapToLong(i -> (long) Math.pow(2, i))
                 .sum();
 
-        final Long reduce = mask.value.entrySet().stream()
-                .filter(entry -> entry.getValue() == '1' && entry.getKey() >= binary.length())
-                .reduce(memoryAddress,
-                        (acc, val) -> acc + (long) Math.pow(2, val.getKey()),
-                        Long::sum);
+        final Long result = applyRemainingMask(mask, binary, baseResult);
 
         return getMemoryOffsetCombinations(mask.floatingPositions).stream()
-                .map(floatingMemoryAddress -> floatingMemoryAddress + reduce)
+                .map(floatingMemoryAddress -> floatingMemoryAddress + result)
                 .toList();
     }
 
