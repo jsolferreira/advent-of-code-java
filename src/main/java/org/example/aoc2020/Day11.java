@@ -8,9 +8,10 @@ import java.util.function.IntUnaryOperator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-class Day11 extends AbstractAoC2020<Long, Character[][]> {
+class Day11 extends AbstractAoC2020<Character[][]> {
 
-    private record Position(int i, int j) {}
+    private record Position(int i, int j) {
+    }
 
     @Override
     protected Character[][] parseInput(String strInput) {
@@ -21,7 +22,7 @@ class Day11 extends AbstractAoC2020<Long, Character[][]> {
     }
 
     @Override
-    protected Long partOne(Character[][] input) {
+    protected long partOne(Character[][] input) {
 
         final Character[][] layout = Arrays.stream(input)
                 .map(i -> Arrays.stream(i).toArray(Character[]::new))
@@ -84,7 +85,7 @@ class Day11 extends AbstractAoC2020<Long, Character[][]> {
     }
 
     @Override
-    protected Long partTwo(Character[][] input) {
+    protected long partTwo(Character[][] input) {
 
         boolean hasChanges = true;
 

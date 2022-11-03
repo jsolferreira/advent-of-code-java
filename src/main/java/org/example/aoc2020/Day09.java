@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-class Day09 extends AbstractAoC2020<Long, List<Long>> {
+class Day09 extends AbstractAoC2020<List<Long>> {
 
     @Override
     protected List<Long> parseInput(String strInput) {
@@ -16,7 +16,7 @@ class Day09 extends AbstractAoC2020<Long, List<Long>> {
     }
 
     @Override
-    protected Long partOne(List<Long> input) {
+    protected long partOne(List<Long> input) {
 
         return IntStream.range(25, input.size())
                 .filter(i -> !validateNumber(input, i, input.get(i)))
@@ -33,7 +33,7 @@ class Day09 extends AbstractAoC2020<Long, List<Long>> {
     }
 
     @Override
-    protected Long partTwo(List<Long> input) {
+    protected long partTwo(List<Long> input) {
 
         final LinkedList<Long> contiguous = new LinkedList<>();
         Long sum = 0L;

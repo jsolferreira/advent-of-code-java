@@ -3,7 +3,7 @@ package org.example.aoc2020;
 import java.util.HashSet;
 import java.util.List;
 
-class Day08 extends AbstractAoC2020<Integer, List<Day08.Instruction>> {
+class Day08 extends AbstractAoC2020<List<Day08.Instruction>> {
 
     private enum Operation {
         NOP,
@@ -11,7 +11,8 @@ class Day08 extends AbstractAoC2020<Integer, List<Day08.Instruction>> {
         ACC
     }
 
-    protected record Instruction(Operation op, int argument) {}
+    protected record Instruction(Operation op, int argument) {
+    }
 
     private static class LoopException extends Exception {
 
@@ -41,7 +42,7 @@ class Day08 extends AbstractAoC2020<Integer, List<Day08.Instruction>> {
     }
 
     @Override
-    protected Integer partOne(List<Instruction> input) {
+    protected long partOne(List<Instruction> input) {
 
         try {
             return run(input, 0);
@@ -51,9 +52,9 @@ class Day08 extends AbstractAoC2020<Integer, List<Day08.Instruction>> {
     }
 
     @Override
-    protected Integer partTwo(List<Instruction> input) {
+    protected long partTwo(List<Instruction> input) {
 
-        int accumulator = 0;
+        long accumulator = 0;
 
         for (int i = 0; i < input.size(); ) {
 

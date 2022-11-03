@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-class Day06 extends AbstractAoC2020<Integer, List<List<String>>> {
+class Day06 extends AbstractAoC2020<List<List<String>>> {
 
     @Override
     protected List<List<String>> parseInput(String strInput) {
@@ -17,7 +17,7 @@ class Day06 extends AbstractAoC2020<Integer, List<List<String>>> {
     }
 
     @Override
-    protected Integer partOne(List<List<String>> input) {
+    protected long partOne(List<List<String>> input) {
 
         return input.stream().reduce(0,
                                      (acc1, val1) -> acc1 + val1.stream()
@@ -33,7 +33,7 @@ class Day06 extends AbstractAoC2020<Integer, List<List<String>>> {
     }
 
     @Override
-    protected Integer partTwo(List<List<String>> input) {
+    protected long partTwo(List<List<String>> input) {
 
         return input.stream().reduce(0,
                                      (acc1, group) -> acc1 + group.stream()

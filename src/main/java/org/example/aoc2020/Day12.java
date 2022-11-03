@@ -2,7 +2,7 @@ package org.example.aoc2020;
 
 import java.util.List;
 
-class Day12 extends AbstractAoC2020<Integer, List<Day12.Instruction>> {
+class Day12 extends AbstractAoC2020<List<Day12.Instruction>> {
 
     private interface Action {
     }
@@ -308,7 +308,7 @@ class Day12 extends AbstractAoC2020<Integer, List<Day12.Instruction>> {
     }
 
     @Override
-    protected Integer partOne(List<Instruction> input) {
+    protected long partOne(List<Instruction> input) {
 
         final Ship ship = new Ship();
 
@@ -318,7 +318,7 @@ class Day12 extends AbstractAoC2020<Integer, List<Day12.Instruction>> {
     }
 
     @Override
-    protected Integer partTwo(List<Instruction> input) {
+    protected long partTwo(List<Instruction> input) {
 
         final ShipAndWaypoint ship = new ShipAndWaypoint();
 

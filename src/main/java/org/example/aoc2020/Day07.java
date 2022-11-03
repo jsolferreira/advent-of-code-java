@@ -8,9 +8,9 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day07 extends AbstractAoC2020<Long, Map<String, Map<String, Integer>>> {
+class Day07 extends AbstractAoC2020<Map<String, Map<String, Integer>>> {
 
-    private final String SHINY_GOLD = "shiny gold";
+    private static final String SHINY_GOLD = "shiny gold";
 
     @Override
     protected Map<String, Map<String, Integer>> parseInput(String strInput) {
@@ -36,7 +36,7 @@ class Day07 extends AbstractAoC2020<Long, Map<String, Map<String, Integer>>> {
     }
 
     @Override
-    protected Long partOne(Map<String, Map<String, Integer>> input) {
+    protected long partOne(Map<String, Map<String, Integer>> input) {
 
         final HashMap<String, Boolean> visitedBags = new HashMap<>();
 
@@ -72,7 +72,7 @@ class Day07 extends AbstractAoC2020<Long, Map<String, Map<String, Integer>>> {
     }
 
     @Override
-    protected Long partTwo(Map<String, Map<String, Integer>> input) {
+    protected long partTwo(Map<String, Map<String, Integer>> input) {
 
         final HashMap<String, Long> visitedBags = new HashMap<>();
 

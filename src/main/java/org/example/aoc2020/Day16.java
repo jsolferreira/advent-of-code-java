@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day16 extends AbstractAoC2020<Long, Day16.Note> {
+class Day16 extends AbstractAoC2020<Day16.Note> {
 
     private record Ticket(List<Long> values) {
     }
@@ -74,7 +74,7 @@ class Day16 extends AbstractAoC2020<Long, Day16.Note> {
     }
 
     @Override
-    protected Long partOne(Note input) {
+    protected long partOne(Note input) {
 
         return input.nearbyTickets.stream()
                 .flatMap(nearbyTicket -> nearbyTicket.values
@@ -87,7 +87,7 @@ class Day16 extends AbstractAoC2020<Long, Day16.Note> {
     }
 
     @Override
-    protected Long partTwo(Note input) {
+    protected long partTwo(Note input) {
 
         final List<Ticket> validTickets = getValidTickets(input);
 
@@ -137,27 +137,27 @@ class Day16 extends AbstractAoC2020<Long, Day16.Note> {
         final int numberOfFieldsInEachTicket = tickets.get(0).values.size();
 
         return IntStream.range(0, numberOfFieldsInEachTicket)
-                .mapToObj(j -> tickets.stream()
+                .<List<String>>mapToObj(j -> tickets.stream()
                         .map(integer -> integer.values.get(j))
-                        .reduce((List<String>) new ArrayList<String>(),
-                                (acc, val) -> {
+                        .<List<String>>reduce(new ArrayList<>(),
+                                              (acc, val) -> {
 
-                                    final List<String> strings = input.fields.entrySet().stream()
-                                            .filter(entry -> isValueInAnyRange(entry.getValue(), val))
-                                            .map(Map.Entry::getKey)
-                                            .toList();
+                                                  final List<String> strings = input.fields.entrySet().stream()
+                                                          .filter(entry -> isValueInAnyRange(entry.getValue(), val))
+                                                          .map(Map.Entry::getKey)
+                                                          .toList();
 
-                                    if (acc.isEmpty()) {
+                                                  if (acc.isEmpty()) {
 
-                                        return strings;
-                                    } else {
+                                                      return strings;
+                                                  } else {
 
-                                        return acc.stream()
-                                                .filter(strings::contains)
-                                                .toList();
-                                    }
-                                },
-                                (a, b) -> new ArrayList<>())
+                                                      return acc.stream()
+                                                              .filter(strings::contains)
+                                                              .toList();
+                                                  }
+                                              },
+                                              (a, b) -> new ArrayList<>())
                 )
                 .collect(Collectors.toList());
     }

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Day15 extends AbstractAoC2020<Integer, List<Integer>> {
+class Day15 extends AbstractAoC2020<List<Integer>> {
 
     @Override
     protected List<Integer> parseInput(String strInput) {
@@ -16,13 +16,13 @@ class Day15 extends AbstractAoC2020<Integer, List<Integer>> {
     }
 
     @Override
-    protected Integer partOne(List<Integer> input) {
+    protected long partOne(List<Integer> input) {
 
         return run(input, 2020);
     }
 
     @Override
-    protected Integer partTwo(List<Integer> input) {
+    protected long partTwo(List<Integer> input) {
 
         return run(input, 30000000);
     }

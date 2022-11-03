@@ -12,13 +12,14 @@ public class AoC2016 extends AbstractYearRunner {
     protected List<Class<? extends Runnable>> getDays() {
 
         return List.of(
-                Day01.class,
-                Day02.class
+                Day01.class
         );
     }
 
     @Override
-    protected Runnable newInstance(Class<? extends Runnable> c) throws NoSuchMethodException, InvocationTargetException, InstantiationException,
+    protected Runnable newInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
+                                                                       InvocationTargetException,
+                                                                       InstantiationException,
                                                                        IllegalAccessException {
 
         return c.getDeclaredConstructor().newInstance();

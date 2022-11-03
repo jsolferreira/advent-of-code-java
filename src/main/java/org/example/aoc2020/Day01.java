@@ -3,7 +3,7 @@ package org.example.aoc2020;
 import java.util.List;
 import java.util.stream.IntStream;
 
-class Day01 extends AbstractAoC2020<Integer, List<Integer>> {
+class Day01 extends AbstractAoC2020<List<Integer>> {
 
     @Override
     protected List<Integer> parseInput(String strInput) {
@@ -14,7 +14,7 @@ class Day01 extends AbstractAoC2020<Integer, List<Integer>> {
     }
 
     @Override
-    protected Integer partOne(List<Integer> input) {
+    protected long partOne(List<Integer> input) {
 
         return IntStream.range(0, input.size())
                 .flatMap(i -> IntStream.range(i + 1, input.size())
@@ -25,7 +25,7 @@ class Day01 extends AbstractAoC2020<Integer, List<Integer>> {
     }
 
     @Override
-    protected Integer partTwo(List<Integer> input) {
+    protected long partTwo(List<Integer> input) {
 
         return IntStream.range(0, input.size())
                 .flatMap(i -> IntStream.range(i + 1, input.size())

@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
+class Day01 extends AbstractAoC2016<List<Day01.Instruction>> {
 
     private enum Direction {
         R,
@@ -47,12 +47,12 @@ class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
 
         return Arrays.stream(strInput.split(", "))
                 .map(i -> new Instruction(Direction.valueOf(i.substring(0, 1)),
-                        Integer.parseInt(i.substring(1))))
+                                          Integer.parseInt(i.substring(1))))
                 .toList();
     }
 
     @Override
-    protected Integer partOne(List<Instruction> input) {
+    protected long partOne(List<Instruction> input) {
 
         int i = 0;
         int j = 0;
@@ -70,11 +70,11 @@ class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
             }
         }
 
-        return Math.abs(i) + Math.abs(j);
+        return (long) Math.abs(i) + Math.abs(j);
     }
 
     @Override
-    protected Integer partTwo(List<Instruction> input) {
+    protected long partTwo(List<Instruction> input) {
 
         final HashSet<Location> visitedLocations = new HashSet<>();
 
@@ -96,7 +96,7 @@ class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
 
                         if (checkIfLocationIsAlreadyVisited(visitedLocations, i, ++j)) {
 
-                            return Math.abs(i) + Math.abs(j);
+                            return (long) Math.abs(i) + Math.abs(j);
                         }
 
                         blocks++;
@@ -109,7 +109,7 @@ class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
 
                         if (checkIfLocationIsAlreadyVisited(visitedLocations, ++i, j)) {
 
-                            return Math.abs(i) + Math.abs(j);
+                            return (long) Math.abs(i) + Math.abs(j);
                         }
 
                         blocks++;
@@ -122,7 +122,7 @@ class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
 
                         if (checkIfLocationIsAlreadyVisited(visitedLocations, i, --j)) {
 
-                            return Math.abs(i) + Math.abs(j);
+                            return (long) Math.abs(i) + Math.abs(j);
                         }
 
                         blocks++;
@@ -135,7 +135,7 @@ class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
 
                         if (checkIfLocationIsAlreadyVisited(visitedLocations, --i, j)) {
 
-                            return Math.abs(i) + Math.abs(j);
+                            return (long) Math.abs(i) + Math.abs(j);
                         }
 
                         blocks++;
@@ -144,7 +144,7 @@ class Day01 extends AbstractAoC2016<Integer, List<Day01.Instruction>> {
             }
         }
 
-        return Math.abs(i) + Math.abs(j);
+        return (long) Math.abs(i) + Math.abs(j);
     }
 
     private boolean checkIfLocationIsAlreadyVisited(Set<Location> visitedLocations, int i, int j) {

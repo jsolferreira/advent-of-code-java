@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-public abstract class AbstractAoCDay<T, Q> implements Runnable {
+public abstract class AbstractAoCDay<T> implements Runnable {
 
-    private final String BASE = "input";
+    private static final String BASE = "input";
 
     private final String YEAR = getYear();
 
@@ -14,14 +14,14 @@ public abstract class AbstractAoCDay<T, Q> implements Runnable {
 
     private final String INPUT_PATH = BASE + "/" + YEAR + "/" + DAY + ".txt";
 
-    protected T PART_ONE_RESULT;
+    protected long PART_ONE_RESULT;
 
     @Override
     public void run() throws IOException {
 
         final String strInput = readFileInput();
 
-        final Q input = parseInput(strInput);
+        final T input = parseInput(strInput);
 
         PART_ONE_RESULT = partOne(input);
 
@@ -41,11 +41,11 @@ public abstract class AbstractAoCDay<T, Q> implements Runnable {
         return new String(is.readAllBytes(), StandardCharsets.UTF_8).trim();
     }
 
-    protected abstract Q parseInput(String strInput);
+    protected abstract T parseInput(String strInput);
 
-    protected abstract T partOne(Q input);
+    protected abstract long partOne(T input);
 
-    protected abstract T partTwo(Q input);
+    protected abstract long partTwo(T input);
 
     protected abstract String getYear();
 

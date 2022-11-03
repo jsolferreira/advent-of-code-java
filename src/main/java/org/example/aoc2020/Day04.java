@@ -11,9 +11,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-class Day04 extends AbstractAoC2020<Long, List<Day04.Passport>> {
+class Day04 extends AbstractAoC2020<List<Day04.Passport>> {
 
-    protected record Passport(Map<String, String> fields) {}
+    protected record Passport(Map<String, String> fields) {
+    }
 
     private final Map<String, Function<String, Boolean>> passportFields = Map.ofEntries(
             Map.entry("byr", Day04::validateByr),
@@ -27,13 +28,13 @@ class Day04 extends AbstractAoC2020<Long, List<Day04.Passport>> {
 
     private final Set<String> notRequiredPassportFields = Set.of("cid");
 
-    private final static Pattern hgtPattern = Pattern.compile("(\\d+)(cm|in)");
+    private static final Pattern hgtPattern = Pattern.compile("(\\d+)(cm|in)");
 
-    private final static Pattern hclPattern = Pattern.compile("#(\\d|[a-f]){6}");
+    private static final Pattern hclPattern = Pattern.compile("#(\\d|[a-f]){6}");
 
-    private final static Pattern pidPattern = Pattern.compile("\\d{9}");
+    private static final Pattern pidPattern = Pattern.compile("\\d{9}");
 
-    private final static Set<String> eyeColors = Set.of("amb",
+    private static final Set<String> eyeColors = Set.of("amb",
                                                         "blu",
                                                         "brn",
                                                         "gry",
@@ -75,7 +76,7 @@ class Day04 extends AbstractAoC2020<Long, List<Day04.Passport>> {
     }
 
     @Override
-    protected Long partOne(List<Passport> input) {
+    protected long partOne(List<Passport> input) {
 
         return input.stream()
                 .filter(this::passportHasAllRequiredFields)
@@ -83,7 +84,7 @@ class Day04 extends AbstractAoC2020<Long, List<Day04.Passport>> {
     }
 
     @Override
-    protected Long partTwo(List<Passport> input) {
+    protected long partTwo(List<Passport> input) {
 
         return input.stream()
                 .filter(passport -> passportHasAllRequiredFields(passport) && passportHasValidValues(passport))

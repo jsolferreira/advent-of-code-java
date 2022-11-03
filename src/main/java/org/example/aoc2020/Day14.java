@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day14 extends AbstractAoC2020<Long, List<? extends Record>> {
+class Day14 extends AbstractAoC2020<List<? extends Record>> {
 
     private record Mask(Map<Integer, Character> value, List<Integer> floatingPositions) {
     }
@@ -60,7 +60,7 @@ class Day14 extends AbstractAoC2020<Long, List<? extends Record>> {
     }
 
     @Override
-    protected Long partOne(List<? extends Record> input) {
+    protected long partOne(List<? extends Record> input) {
 
         Mask currentMask = null;
         final Map<Long, Long> memory = new HashMap<>();
@@ -104,7 +104,7 @@ class Day14 extends AbstractAoC2020<Long, List<? extends Record>> {
     }
 
     @Override
-    protected Long partTwo(List<? extends Record> input) {
+    protected long partTwo(List<? extends Record> input) {
 
         Mask currentMask = null;
         final Map<Long, Long> memory = new HashMap<>();

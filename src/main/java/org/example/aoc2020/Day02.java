@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Day02 extends AbstractAoC2020<Long, List<Day02.PasswordValidation>> {
+class Day02 extends AbstractAoC2020<List<Day02.PasswordValidation>> {
 
     protected record PasswordValidation(int lowerBound, int upperBound, char letter, String password) {
     }
@@ -17,12 +17,15 @@ class Day02 extends AbstractAoC2020<Long, List<Day02.PasswordValidation>> {
         return strInput.lines()
                 .map(pattern::matcher)
                 .filter(Matcher::matches)
-                .map(m -> new PasswordValidation(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2)), m.group(3).charAt(0), m.group(4)))
+                .map(matcher -> new PasswordValidation(Integer.parseInt(matcher.group(1)),
+                                                       Integer.parseInt(matcher.group(2)),
+                                                       matcher.group(3).charAt(0),
+                                                       matcher.group(4)))
                 .toList();
     }
 
     @Override
-    protected Long partOne(List<PasswordValidation> input) {
+    protected long partOne(List<PasswordValidation> input) {
 
         return input.stream()
                 .filter(passwordValidation -> {
@@ -36,7 +39,7 @@ class Day02 extends AbstractAoC2020<Long, List<Day02.PasswordValidation>> {
     }
 
     @Override
-    protected Long partTwo(List<PasswordValidation> input) {
+    protected long partTwo(List<PasswordValidation> input) {
 
         return input.stream()
                 .filter(passwordValidation -> {

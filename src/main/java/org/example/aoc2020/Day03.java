@@ -1,6 +1,6 @@
 package org.example.aoc2020;
 
-class Day03 extends AbstractAoC2020<Long, char[][]> {
+class Day03 extends AbstractAoC2020<char[][]> {
 
     @Override
     protected char[][] parseInput(String strInput) {
@@ -11,13 +11,13 @@ class Day03 extends AbstractAoC2020<Long, char[][]> {
     }
 
     @Override
-    protected Long partOne(char[][] input) {
+    protected long partOne(char[][] input) {
 
         return calculateNumberOfTrees(input, 3, 1);
     }
 
     @Override
-    protected Long partTwo(char[][] input) {
+    protected long partTwo(char[][] input) {
 
         return calculateNumberOfTrees(input, 1, 1) *
                 calculateNumberOfTrees(input, 3, 1) *

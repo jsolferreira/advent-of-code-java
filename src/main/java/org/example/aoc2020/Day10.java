@@ -2,7 +2,7 @@ package org.example.aoc2020;
 
 import java.util.List;
 
-class Day10 extends AbstractAoC2020<Long, List<Long>> {
+class Day10 extends AbstractAoC2020<List<Long>> {
 
     @Override
     protected List<Long> parseInput(String strInput) {
@@ -14,7 +14,7 @@ class Day10 extends AbstractAoC2020<Long, List<Long>> {
     }
 
     @Override
-    protected Long partOne(List<Long> input) {
+    protected long partOne(List<Long> input) {
 
         long prev = 0;
         long sum1 = 0;
@@ -35,7 +35,7 @@ class Day10 extends AbstractAoC2020<Long, List<Long>> {
     }
 
     @Override
-    protected Long partTwo(List<Long> input) {
+    protected long partTwo(List<Long> input) {
 
         int g = numberOfConnections(0L, input.get(0), input.get(1), input.get(2));
         long n = 1;

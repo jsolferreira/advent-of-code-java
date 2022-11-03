@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-class Day13 extends AbstractAoC2020<Long, Day13.Note> {
+class Day13 extends AbstractAoC2020<Day13.Note> {
 
     private record Bus(int id, int position) {
     }
@@ -29,7 +29,7 @@ class Day13 extends AbstractAoC2020<Long, Day13.Note> {
     }
 
     @Override
-    protected Long partOne(Note input) {
+    protected long partOne(Note input) {
 
         long timestamp = input.timestamp;
 
@@ -51,9 +51,9 @@ class Day13 extends AbstractAoC2020<Long, Day13.Note> {
     }
 
     @Override
-    protected Long partTwo(Note input) {
+    protected long partTwo(Note input) {
 
-        return null;
+        throw new RuntimeException();
 
        /*
        BigInteger timestamp = BigInteger.ZERO;

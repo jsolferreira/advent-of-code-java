@@ -2,7 +2,7 @@ package org.example.aoc2020;
 
 import java.util.List;
 
-class Day05 extends AbstractAoC2020<Integer, List<String>> {
+class Day05 extends AbstractAoC2020<List<String>> {
 
     private record Range(int lowerBound, int upperBound) {
     }
@@ -14,7 +14,7 @@ class Day05 extends AbstractAoC2020<Integer, List<String>> {
     }
 
     @Override
-    protected Integer partOne(List<String> input) {
+    protected long partOne(List<String> input) {
 
         return input.stream()
                 .mapToInt(seat -> {
@@ -29,7 +29,7 @@ class Day05 extends AbstractAoC2020<Integer, List<String>> {
     }
 
     @Override
-    protected Integer partTwo(List<String> input) {
+    protected long partTwo(List<String> input) {
 
         final List<Integer> seats = input.stream()
                 .map(seat -> {
