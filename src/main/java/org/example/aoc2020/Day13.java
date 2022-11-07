@@ -53,20 +53,7 @@ class Day13 extends AbstractAoC2020<Day13.Note> {
     @Override
     protected long partTwo(Note input) {
 
-        throw new RuntimeException();
-
-       /*
-       BigInteger timestamp = BigInteger.ZERO;
-        BigInteger jump = BigInteger.valueOf(input.buses.get(0).id);
-
-        for (int i = 1; i < input.buses.size(); i++) {
-            final Bus bus = input.buses.get(i);
-            while (!timestamp.add(BigInteger.valueOf(bus.position)).mod(BigInteger.valueOf(bus.id)).equals(BigInteger.ZERO)) {
-                timestamp = timestamp.add(jump);
-            }
-            jump = jump.multiply(BigInteger.valueOf(bus.id));
-        }
-        return timestamp;*/
+        return -1;
     }
 
     @Override

@@ -31,8 +31,8 @@ class Day16 extends AbstractAoC2020<Day16.Note> {
         final String[] firstSplit = strInput.split("\\s\\syour ticket:\\s");
         final String fieldsBlock = firstSplit[0];
         final String[] secondSplit = firstSplit[1].split("\\s\\snearby tickets:\\s");
-        final String ticketsBlock = secondSplit[0];
-        final String nearbyTicketsBlock = secondSplit[1];
+        final String ticketsBlock = secondSplit[0].trim();
+        final String nearbyTicketsBlock = secondSplit[1].trim();
 
         final Map<String, List<Range>> ranges = parseRanges(fieldsBlock);
         final Ticket ticket = parseTicket(ticketsBlock);
