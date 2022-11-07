@@ -27,7 +27,8 @@ public class AoC2020Runner extends AbstractYearRunner {
                 Day13.class,
                 Day14.class,
                 Day15.class,
-                Day16.class
+                Day16.class,
+                Day17.class
         );
     }
 
