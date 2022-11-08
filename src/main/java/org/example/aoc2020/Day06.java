@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-class Day06 extends AbstractAoC2020<List<List<String>>> {
+class Day06 extends AoC2020Day<List<List<String>>> {
 
     @Override
     protected List<List<String>> parseInput(String strInput) {

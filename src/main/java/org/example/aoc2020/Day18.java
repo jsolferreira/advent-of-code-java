@@ -5,7 +5,7 @@ import java.util.function.LongBinaryOperator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Day18 extends AbstractAoC2020<List<String>> {
+class Day18 extends AoC2020Day<List<String>> {
 
     @Override
     protected List<String> parseInput(String strInput) {

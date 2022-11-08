@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-class Day04 extends AbstractAoC2020<List<Day04.Passport>> {
+class Day04 extends AoC2020Day<List<Day04.Passport>> {
 
     protected record Passport(Map<String, String> fields) {
     }

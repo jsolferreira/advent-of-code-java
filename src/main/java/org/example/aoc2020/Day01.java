@@ -3,7 +3,7 @@ package org.example.aoc2020;
 import java.util.List;
 import java.util.stream.IntStream;
 
-class Day01 extends AbstractAoC2020<List<Integer>> {
+class Day01 extends AoC2020Day<List<Integer>> {
 
     @Override
     protected List<Integer> parseInput(String strInput) {

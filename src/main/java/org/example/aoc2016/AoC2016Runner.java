@@ -1,12 +1,12 @@
 package org.example.aoc2016;
 
-import org.example.base.AbstractYearRunner;
+import org.example.base.AoCRunner;
 import org.example.base.Runnable;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public class AoC2016 extends AbstractYearRunner {
+public class AoC2016Runner extends AoCRunner {
 
     @Override
     protected List<Class<? extends Runnable>> getDays() {

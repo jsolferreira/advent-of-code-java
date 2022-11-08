@@ -2,7 +2,7 @@ package org.example.aoc2020;
 
 import java.util.List;
 
-class Day10 extends AbstractAoC2020<List<Long>> {
+class Day10 extends AoC2020Day<List<Long>> {
 
     @Override
     protected List<Long> parseInput(String strInput) {

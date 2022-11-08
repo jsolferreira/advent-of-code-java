@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day07 extends AbstractAoC2020<Map<String, Map<String, Integer>>> {
+class Day07 extends AoC2020Day<Map<String, Map<String, Integer>>> {
 
     private static final String SHINY_GOLD = "shiny gold";
 

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-class Day09 extends AbstractAoC2020<List<Long>> {
+class Day09 extends AoC2020Day<List<Long>> {
 
     @Override
     protected List<Long> parseInput(String strInput) {

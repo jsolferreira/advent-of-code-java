@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
-class Day13 extends AbstractAoC2020<Day13.Note> {
+class Day13 extends AoC2020Day<Day13.Note> {
 
     private record Bus(int id, int position) {
     }

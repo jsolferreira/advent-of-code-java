@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day16 extends AbstractAoC2020<Day16.Note> {
+class Day16 extends AoC2020Day<Day16.Note> {
 
     private record Ticket(List<Long> values) {
     }

@@ -2,7 +2,7 @@ package org.example.aoc2020;
 
 import java.util.List;
 
-class Day05 extends AbstractAoC2020<List<String>> {
+class Day05 extends AoC2020Day<List<String>> {
 
     private record Range(int lowerBound, int upperBound) {
     }

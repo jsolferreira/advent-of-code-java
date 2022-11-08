@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class Day02 extends AbstractAoC2020<List<Day02.PasswordValidation>> {
+class Day02 extends AoC2020Day<List<Day02.PasswordValidation>> {
 
     protected record PasswordValidation(int lowerBound, int upperBound, char letter, String password) {
     }

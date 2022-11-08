@@ -1,6 +1,6 @@
 package org.example.aoc2020;
 
-class Day03 extends AbstractAoC2020<char[][]> {
+class Day03 extends AoC2020Day<char[][]> {
 
     @Override
     protected char[][] parseInput(String strInput) {

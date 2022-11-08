@@ -8,7 +8,7 @@ import java.util.function.IntUnaryOperator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-class Day11 extends AbstractAoC2020<Character[][]> {
+class Day11 extends AoC2020Day<Character[][]> {
 
     private record Position(int i, int j) {
     }

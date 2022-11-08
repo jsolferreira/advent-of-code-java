@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
-class Day17 extends AbstractAoC2020<Day17.State[][][][]> {
+class Day17 extends AoC2020Day<Day17.State[][][][]> {
 
     protected enum State {
         ACTIVE,

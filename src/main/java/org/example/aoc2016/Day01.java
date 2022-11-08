@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-class Day01 extends AbstractAoC2016<List<Day01.Instruction>> {
+class Day01 extends AoC2016Day<List<Day01.Instruction>> {
 
     private enum Direction {
         R,

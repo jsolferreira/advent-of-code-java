@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 
-public abstract class AbstractAoCDay<T> implements Runnable {
+public abstract class AoCDay<T> implements Runnable {
 
     private static final String BASE = "input";
 

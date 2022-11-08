@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day14 extends AbstractAoC2020<List<? extends Record>> {
+class Day14 extends AoC2020Day<List<? extends Record>> {
 
     private record Mask(Map<Integer, Character> value, List<Integer> floatingPositions) {
     }

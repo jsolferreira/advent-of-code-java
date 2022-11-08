@@ -3,7 +3,7 @@ package org.example.aoc2020;
 import java.util.HashSet;
 import java.util.List;
 
-class Day08 extends AbstractAoC2020<List<Day08.Instruction>> {
+class Day08 extends AoC2020Day<List<Day08.Instruction>> {
 
     private enum Operation {
         NOP,

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Day15 extends AbstractAoC2020<List<Integer>> {
+class Day15 extends AoC2020Day<List<Integer>> {
 
     @Override
     protected List<Integer> parseInput(String strInput) {

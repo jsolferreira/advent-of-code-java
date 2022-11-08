@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public abstract class AbstractYearRunner implements Runnable {
+public abstract class AoCRunner implements Runnable {
 
     private final List<Class<? extends Runnable>> dayClasses = getDays();
 

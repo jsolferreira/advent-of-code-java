@@ -2,7 +2,7 @@ package org.example.aoc2020;
 
 import java.util.List;
 
-class Day12 extends AbstractAoC2020<List<Day12.Instruction>> {
+class Day12 extends AoC2020Day<List<Day12.Instruction>> {
 
     private interface Action {
     }
