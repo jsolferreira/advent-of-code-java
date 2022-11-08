@@ -34,10 +34,10 @@ public class AoC2020Runner extends AoCRunner {
     }
 
     @Override
-    protected Runnable newInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
-                                                                       InvocationTargetException,
-                                                                       InstantiationException,
-                                                                       IllegalAccessException {
+    protected Runnable newDayInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
+                                                                          InvocationTargetException,
+                                                                          InstantiationException,
+                                                                          IllegalAccessException {
 
         return c.getDeclaredConstructor().newInstance();
     }

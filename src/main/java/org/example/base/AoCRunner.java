@@ -13,19 +13,23 @@ public abstract class AoCRunner implements Runnable {
 
         try {
             for (Class<? extends Runnable> dayClass : dayClasses) {
-                final Runnable runnable = newInstance(dayClass);
+                final Runnable runnable = newDayInstance(dayClass);
 
                 runnable.run();
             }
-        } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException | IOException e) {
+        } catch (NoSuchMethodException |
+                 InvocationTargetException |
+                 InstantiationException |
+                 IllegalAccessException |
+                 IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     protected abstract List<Class<? extends Runnable>> getDays();
 
-    protected abstract Runnable newInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
-                                                                                InvocationTargetException,
-                                                                                InstantiationException,
-                                                                                IllegalAccessException;
+    protected abstract Runnable newDayInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
+                                                                                   InvocationTargetException,
+                                                                                   InstantiationException,
+                                                                                   IllegalAccessException;
 }

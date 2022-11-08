@@ -1,8 +1,13 @@
 package org.example.base;
 
+import org.example.cli.Cli;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
+import java.time.Instant;
+import java.util.function.Consumer;
 
 public abstract class AoCDay<T> implements Runnable {
 
@@ -23,10 +28,8 @@ public abstract class AoCDay<T> implements Runnable {
 
         final T input = parseInput(strInput);
 
-        PART_ONE_RESULT = partOne(input);
-
-        System.out.println("Part One: " + PART_ONE_RESULT);
-        System.out.println("Part Two: " + partTwo(input));
+        executePart(input, this::executePartOne);
+        executePart(input, this::executePartTwo);
     }
 
     private String readFileInput() throws IOException {
@@ -39,6 +42,41 @@ public abstract class AoCDay<T> implements Runnable {
         }
 
         return new String(is.readAllBytes(), StandardCharsets.UTF_8).trim();
+    }
+
+    private void executePart(T input, Consumer<T> partConsumer) {
+
+        if (Cli.measureTime()) {
+
+            executeAndMeasure(input, partConsumer);
+        } else {
+
+            partConsumer.accept(input);
+        }
+    }
+
+    private void executePartOne(T input) {
+
+        PART_ONE_RESULT = partOne(input);
+        System.out.println("Part One: " + PART_ONE_RESULT);
+    }
+
+    private void executePartTwo(T input) {
+
+        System.out.println("Part Two: " + partTwo(input));
+    }
+
+    private void executeAndMeasure(T input, Consumer<T> function) {
+
+        final Instant start = Instant.now();
+
+        function.accept(input);
+
+        final Instant end = Instant.now();
+
+        final long l = Duration.between(start, end).toMillis();
+
+        System.out.println("Duration: " + l + " milliseconds");
     }
 
     protected abstract T parseInput(String strInput);
