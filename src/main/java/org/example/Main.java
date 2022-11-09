@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.base.AoC;
+import org.example.base.AoCRunner;
 import org.example.cli.Cli;
 
 public class Main {
@@ -9,6 +9,6 @@ public class Main {
 
         Cli.start(args);
 
-        AoC.start();
+        AoCRunner.start();
     }
 }

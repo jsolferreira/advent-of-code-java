@@ -10,7 +10,7 @@ repositories {
 }
 
 application {
-    mainClassName = 'org.example.Main'
+    mainClass = 'org.example.Main'
 }
 
 dependencies {

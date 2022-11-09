@@ -1,35 +1,60 @@
 package org.example.base;
 
-import java.io.IOException;
+import org.example.aoc2016.AoC2016;
+import org.example.aoc2019.AoC2019;
+import org.example.aoc2020.AoC2020;
+import org.example.cli.Cli;
+import org.example.exceptions.YearNotFoundException;
+
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
+import java.util.Map;
 
-public abstract class AoCRunner implements Runnable {
+public class AoCRunner {
 
-    private final List<Class<? extends Runnable>> dayClasses = getDays();
+    private static final Map<String, Class<? extends AoCYear>> classes = Map.of(
+            "2016", AoC2016.class,
+            "2019", AoC2019.class,
+            "2020", AoC2020.class
+    );
 
-    @Override
-    public void run() {
+    private AoCRunner() {
+    }
+
+    public static void start() {
+
+        Cli.getYear()
+                .ifPresentOrElse(AoCRunner::runYear, AoCRunner::runAllYears);
+    }
+
+    private static void runYear(String year) {
+
+        final Class<? extends AoCYear> c = classes.get(year);
+
+        if (c == null) {
+
+            throw new YearNotFoundException();
+        }
+
+        runYear(c);
+    }
+
+    private static void runAllYears() {
+
+        classes.values().forEach(AoCRunner::runYear);
+    }
+
+    private static void runYear(Class<? extends AoCYear> c) {
 
         try {
-            for (Class<? extends Runnable> dayClass : dayClasses) {
-                final Runnable runnable = newDayInstance(dayClass);
 
-                runnable.run();
-            }
-        } catch (NoSuchMethodException |
-                 InvocationTargetException |
-                 InstantiationException |
+            final AoCYear base = c.getDeclaredConstructor().newInstance();
+
+            base.run();
+        } catch (InstantiationException |
                  IllegalAccessException |
-                 IOException e) {
+                 InvocationTargetException |
+                 NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
     }
-
-    protected abstract List<Class<? extends Runnable>> getDays();
-
-    protected abstract Runnable newDayInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
-                                                                                   InvocationTargetException,
-                                                                                   InstantiationException,
-                                                                                   IllegalAccessException;
 }

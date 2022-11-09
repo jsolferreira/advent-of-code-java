@@ -2,6 +2,7 @@ package org.example.base;
 
 import org.example.cli.Cli;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -11,15 +12,7 @@ import java.util.function.Consumer;
 
 public abstract class AoCDay<T> implements Runnable {
 
-    private static final String BASE = "input";
-
-    private final String YEAR = getYear();
-
-    private final String DAY = getDay();
-
-    private final String INPUT_PATH = BASE + "/" + YEAR + "/" + DAY + ".txt";
-
-    protected long PART_ONE_RESULT;
+    protected long partOneResult;
 
     @Override
     public void run() throws IOException {
@@ -34,7 +27,13 @@ public abstract class AoCDay<T> implements Runnable {
 
     private String readFileInput() throws IOException {
 
-        final InputStream is = getClass().getClassLoader().getResourceAsStream(INPUT_PATH);
+        final String base = "input";
+        final String year = getYear();
+        final String day = getDay();
+
+        final String inputPath = base + File.separator + year + File.separator + day + ".txt";
+
+        final InputStream is = getClass().getClassLoader().getResourceAsStream(inputPath);
 
         if (is == null) {
 
@@ -57,13 +56,15 @@ public abstract class AoCDay<T> implements Runnable {
 
     private void executePartOne(T input) {
 
-        PART_ONE_RESULT = partOne(input);
-        System.out.println("Part One: " + PART_ONE_RESULT);
+        partOneResult = partOne(input);
+        System.out.println("Part One: " + partOneResult);
     }
 
     private void executePartTwo(T input) {
 
-        System.out.println("Part Two: " + partTwo(input));
+        final long partTwoResult = partTwo(input);
+
+        System.out.println("Part Two: " + partTwoResult);
     }
 
     private void executeAndMeasure(T input, Consumer<T> function) {

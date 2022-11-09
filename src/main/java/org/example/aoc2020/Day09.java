@@ -41,15 +41,15 @@ class Day09 extends AoC2020Day<List<Long>> {
         for (int i = 1; i < input.size(); i++) {
             final long a = input.get(i);
 
-            if (a == PART_ONE_RESULT) {
+            if (a == partOneResult) {
                 throw new RuntimeException();
             }
 
-            if (sum + a > PART_ONE_RESULT) {
+            if (sum + a > partOneResult) {
                 final Long removed = contiguous.pop();
                 sum -= removed;
                 i--;
-            } else if (sum + a < PART_ONE_RESULT) {
+            } else if (sum + a < partOneResult) {
                 contiguous.add(a);
                 sum += a;
             } else {
