@@ -1,4 +1,4 @@
-package org.example.aoc2020;
+package org.example.aoc.aoc2020;
 
 import java.util.HashSet;
 import java.util.List;

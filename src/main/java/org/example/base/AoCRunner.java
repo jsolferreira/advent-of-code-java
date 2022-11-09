@@ -1,8 +1,8 @@
 package org.example.base;
 
-import org.example.aoc2016.AoC2016;
-import org.example.aoc2019.AoC2019;
-import org.example.aoc2020.AoC2020;
+import org.example.aoc.aoc2016.AoC2016;
+import org.example.aoc.aoc2019.AoC2019;
+import org.example.aoc.aoc2020.AoC2020;
 import org.example.cli.Cli;
 import org.example.exceptions.YearNotFoundException;
 

@@ -1,4 +1,4 @@
-package org.example.aoc2020;
+package org.example.aoc.aoc2020;
 
 import java.util.List;
 import java.util.regex.Matcher;

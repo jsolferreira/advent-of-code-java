@@ -1,4 +1,4 @@
-package org.example.aoc2016;
+package org.example.aoc.aoc2016;
 
 import java.util.Arrays;
 import java.util.HashSet;

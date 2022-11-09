@@ -1,4 +1,4 @@
-package org.example.aoc2020;
+package org.example.aoc.aoc2020;
 
 class Day03 extends AoC2020Day<char[][]> {
 
