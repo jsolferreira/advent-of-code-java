@@ -2,7 +2,6 @@ package org.example.aoc.aoc2022;
 
 import java.util.List;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 class Day03 extends AoC2022Day<List<String>> {
 
@@ -17,7 +16,7 @@ class Day03 extends AoC2022Day<List<String>> {
 
         return input.stream()
                 .map(this::getItems)
-                .flatMap(this::findCommonItemType)
+                .map(this::findCommonItemType)
                 .mapToInt(this::getType)
                 .sum();
     }
@@ -27,7 +26,7 @@ class Day03 extends AoC2022Day<List<String>> {
 
         return IntStream.iterate(0, i -> i < input.size(), i -> i + 3)
                 .mapToObj(i -> input.subList(i, i + 3))
-                .flatMap(this::findCommonItemType)
+                .map(this::findCommonItemType)
                 .mapToInt(this::getType)
                 .sum();
     }
@@ -38,7 +37,7 @@ class Day03 extends AoC2022Day<List<String>> {
         return List.of(rucksack.substring(0, half), rucksack.substring(half));
     }
 
-    private Stream<Character> findCommonItemType(List<String> items) {
+    private Character findCommonItemType(List<String> items) {
 
         final String firstItem = items.get(0);
         final List<String> remainingItems = items.stream().skip(1).toList();
@@ -47,7 +46,7 @@ class Day03 extends AoC2022Day<List<String>> {
                 .filter(c1 -> remainingItems.stream().allMatch(item -> item.chars().anyMatch(c2 -> c2 == c1)))
                 .mapToObj(c -> (char) c)
                 .findFirst()
-                .stream();
+                .orElseThrow();
     }
 
     private int getType(char letter) {
