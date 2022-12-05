@@ -14,7 +14,8 @@ public class AoC2022 extends AoCYear {
         return List.of(
                 Day01.class,
                 Day02.class,
-                Day03.class
+                Day03.class,
+                Day04.class
         );
     }
 
