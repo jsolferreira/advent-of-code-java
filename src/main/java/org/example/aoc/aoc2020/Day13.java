@@ -29,7 +29,7 @@ class Day13 extends AoC2020Day<Day13.Note> {
     }
 
     @Override
-    protected long partOne(Note input) {
+    protected Long partOne(Note input) {
 
         long timestamp = input.timestamp;
 
@@ -51,9 +51,9 @@ class Day13 extends AoC2020Day<Day13.Note> {
     }
 
     @Override
-    protected long partTwo(Note input) {
+    protected Long partTwo(Note input) {
 
-        return -1;
+        return null;
     }
 
     @Override

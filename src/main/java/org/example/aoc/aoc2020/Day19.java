@@ -56,7 +56,7 @@ class Day19 extends AoC2020Day<Day19.Input> {
     }
 
     @Override
-    protected long partOne(Input input) {
+    protected Long partOne(Input input) {
 
         return input.messages.stream()
                 .filter(message -> {
@@ -106,9 +106,9 @@ class Day19 extends AoC2020Day<Day19.Input> {
     }
 
     @Override
-    protected long partTwo(Input input) {
+    protected Long partTwo(Input input) {
 
-        return -1;
+        return null;
     }
 
     @Override

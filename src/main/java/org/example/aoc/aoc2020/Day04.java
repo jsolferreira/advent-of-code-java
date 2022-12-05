@@ -76,7 +76,7 @@ class Day04 extends AoC2020Day<List<Day04.Passport>> {
     }
 
     @Override
-    protected long partOne(List<Passport> input) {
+    protected Long partOne(List<Passport> input) {
 
         return input.stream()
                 .filter(this::passportHasAllRequiredFields)
@@ -84,7 +84,7 @@ class Day04 extends AoC2020Day<List<Day04.Passport>> {
     }
 
     @Override
-    protected long partTwo(List<Passport> input) {
+    protected Long partTwo(List<Passport> input) {
 
         return input.stream()
                 .filter(passport -> passportHasAllRequiredFields(passport) && passportHasValidValues(passport))

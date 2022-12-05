@@ -60,7 +60,7 @@ class Day14 extends AoC2020Day<List<? extends Record>> {
     }
 
     @Override
-    protected long partOne(List<? extends Record> input) {
+    protected Long partOne(List<? extends Record> input) {
 
         Mask currentMask = null;
         final Map<Long, Long> memory = new HashMap<>();
@@ -104,7 +104,7 @@ class Day14 extends AoC2020Day<List<? extends Record>> {
     }
 
     @Override
-    protected long partTwo(List<? extends Record> input) {
+    protected Long partTwo(List<? extends Record> input) {
 
         Mask currentMask = null;
         final Map<Long, Long> memory = new HashMap<>();

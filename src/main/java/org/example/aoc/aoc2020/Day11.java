@@ -22,7 +22,7 @@ class Day11 extends AoC2020Day<Character[][]> {
     }
 
     @Override
-    protected long partOne(Character[][] input) {
+    protected Long partOne(Character[][] input) {
 
         final Character[][] layout = Arrays.stream(input)
                 .map(i -> Arrays.stream(i).toArray(Character[]::new))
@@ -85,7 +85,7 @@ class Day11 extends AoC2020Day<Character[][]> {
     }
 
     @Override
-    protected long partTwo(Character[][] input) {
+    protected Long partTwo(Character[][] input) {
 
         boolean hasChanges = true;
 

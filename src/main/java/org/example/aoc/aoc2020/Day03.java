@@ -11,13 +11,13 @@ class Day03 extends AoC2020Day<char[][]> {
     }
 
     @Override
-    protected long partOne(char[][] input) {
+    protected Long partOne(char[][] input) {
 
         return calculateNumberOfTrees(input, 3, 1);
     }
 
     @Override
-    protected long partTwo(char[][] input) {
+    protected Long partTwo(char[][] input) {
 
         return calculateNumberOfTrees(input, 1, 1) *
                 calculateNumberOfTrees(input, 3, 1) *

@@ -2,7 +2,7 @@ package org.example.aoc.aoc2019;
 
 import java.util.Arrays;
 import java.util.function.LongBinaryOperator;
-import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 
 class Day02 extends AoC2019Day<Long[]> {
 
@@ -15,18 +15,18 @@ class Day02 extends AoC2019Day<Long[]> {
     }
 
     @Override
-    protected long partOne(Long[] input) {
+    protected Long partOne(Long[] input) {
 
         return run(input, 12, 2);
     }
 
     @Override
-    protected long partTwo(Long[] input) {
+    protected Long partTwo(Long[] input) {
 
         final long desiredOutput = 19690720;
 
-        return IntStream.range(0, 99)
-                .flatMap(noun -> IntStream.range(0, 99)
+        return LongStream.range(0, 99)
+                .flatMap(noun -> LongStream.range(0, 99)
                         .filter(verb -> run(input, noun, verb) == desiredOutput)
                         .map(verb -> 100 * noun + verb))
                 .findFirst()

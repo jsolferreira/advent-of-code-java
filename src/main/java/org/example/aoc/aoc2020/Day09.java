@@ -16,7 +16,7 @@ class Day09 extends AoC2020Day<List<Long>> {
     }
 
     @Override
-    protected long partOne(List<Long> input) {
+    protected Long partOne(List<Long> input) {
 
         return IntStream.range(25, input.size())
                 .filter(i -> !validateNumber(input, i, input.get(i)))
@@ -33,7 +33,7 @@ class Day09 extends AoC2020Day<List<Long>> {
     }
 
     @Override
-    protected long partTwo(List<Long> input) {
+    protected Long partTwo(List<Long> input) {
 
         final LinkedList<Long> contiguous = new LinkedList<>();
         Long sum = 0L;

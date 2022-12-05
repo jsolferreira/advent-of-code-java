@@ -14,22 +14,22 @@ class Day05 extends AoC2020Day<List<String>> {
     }
 
     @Override
-    protected long partOne(List<String> input) {
+    protected Long partOne(List<String> input) {
 
         return input.stream()
-                .mapToInt(seat -> {
+                .mapToLong(seat -> {
 
                     final int row = findRow(seat);
                     final int column = findColumn(seat);
 
-                    return row * 8 + column;
+                    return row * 8L + column;
                 })
                 .max()
                 .orElseThrow();
     }
 
     @Override
-    protected long partTwo(List<String> input) {
+    protected Long partTwo(List<String> input) {
 
         final List<Integer> seats = input.stream()
                 .map(seat -> {
@@ -46,11 +46,11 @@ class Day05 extends AoC2020Day<List<String>> {
 
             if (seats.get(i) != seats.get(i + 1) - 1) {
 
-                return seats.get(i + 1) - 1;
+                return seats.get(i + 1) - 1L;
             }
         }
 
-        return 0;
+        return null;
     }
 
     private int findRow(String seat) {

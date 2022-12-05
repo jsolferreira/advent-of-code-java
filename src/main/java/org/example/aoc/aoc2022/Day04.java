@@ -9,7 +9,7 @@ class Day04 extends AoC2022Day<List<List<Day04.Pair>>> {
     }
 
     @Override
-    protected List<List<Day04.Pair>> parseInput(String strInput) {
+    protected List<List<Pair>> parseInput(String strInput) {
 
         return strInput.lines()
                 .map(line -> Arrays.stream(line.split(","))
@@ -20,7 +20,7 @@ class Day04 extends AoC2022Day<List<List<Day04.Pair>>> {
     }
 
     @Override
-    protected long partOne(List<List<Day04.Pair>> input) {
+    protected Long partOne(List<List<Pair>> input) {
 
         return input.stream()
                 .filter(this::pairsFullyOverlap)
@@ -37,7 +37,7 @@ class Day04 extends AoC2022Day<List<List<Day04.Pair>>> {
     }
 
     @Override
-    protected long partTwo(List<List<Day04.Pair>> input) {
+    protected Long partTwo(List<List<Day04.Pair>> input) {
 
         return input.stream()
                 .filter(this::pairsOverlap)

@@ -74,7 +74,7 @@ class Day16 extends AoC2020Day<Day16.Note> {
     }
 
     @Override
-    protected long partOne(Note input) {
+    protected Long partOne(Note input) {
 
         return input.nearbyTickets.stream()
                 .flatMap(nearbyTicket -> nearbyTicket.values
@@ -87,7 +87,7 @@ class Day16 extends AoC2020Day<Day16.Note> {
     }
 
     @Override
-    protected long partTwo(Note input) {
+    protected Long partTwo(Note input) {
 
         final List<Ticket> validTickets = getValidTickets(input);
 

@@ -14,7 +14,7 @@ class Day01 extends AoC2022Day<List<List<Long>>> {
     }
 
     @Override
-    protected long partOne(List<List<Long>> input) {
+    protected Long partOne(List<List<Long>> input) {
 
         return input.stream()
                 .mapToLong(this::sumCalories)
@@ -23,7 +23,7 @@ class Day01 extends AoC2022Day<List<List<Long>>> {
     }
 
     @Override
-    protected long partTwo(List<List<Long>> input) {
+    protected Long partTwo(List<List<Long>> input) {
 
         return input.stream()
                 .mapToLong(this::sumCalories)

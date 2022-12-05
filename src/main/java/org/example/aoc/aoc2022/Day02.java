@@ -48,10 +48,10 @@ class Day02 extends AoC2022Day<List<Day02.Round>> {
     }
 
     @Override
-    protected long partOne(List<Round> input) {
+    protected Long partOne(List<Round> input) {
 
         return input.stream()
-                .mapToInt(round -> {
+                .mapToLong(round -> {
 
                     if (round.b.equals(round.a)) {
 
@@ -89,10 +89,10 @@ class Day02 extends AoC2022Day<List<Day02.Round>> {
     }
 
     @Override
-    protected long partTwo(List<Round> input) {
+    protected Long partTwo(List<Round> input) {
 
         return input.stream()
-                .mapToInt(round -> switch (round.expectedOutcome) {
+                .mapToLong(round -> switch (round.expectedOutcome) {
                     case DRAW -> 3 + pointsMap.get(round.a);
                     case WIN -> 6 + pointsMap.get(resultsMap.get(round.a).loses);
                     case LOSE -> pointsMap.get(resultsMap.get(round.a).wins);

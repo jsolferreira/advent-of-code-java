@@ -10,9 +10,9 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.function.Consumer;
 
-public abstract class AoCDay<T> implements Runnable {
+public abstract class AoCDay<T, Q> implements Runnable {
 
-    protected long partOneResult;
+    protected Q partOneResult;
 
     @Override
     public void run() throws IOException {
@@ -40,7 +40,7 @@ public abstract class AoCDay<T> implements Runnable {
             throw new IOException();
         }
 
-        return new String(is.readAllBytes(), StandardCharsets.UTF_8).trim();
+        return new String(is.readAllBytes(), StandardCharsets.UTF_8).stripTrailing();
     }
 
     private void executePart(T input, Consumer<T> partConsumer) {
@@ -62,7 +62,7 @@ public abstract class AoCDay<T> implements Runnable {
 
     private void executePartTwo(T input) {
 
-        final long partTwoResult = partTwo(input);
+        final Q partTwoResult = partTwo(input);
 
         System.out.println("Part Two: " + partTwoResult);
     }
@@ -82,9 +82,9 @@ public abstract class AoCDay<T> implements Runnable {
 
     protected abstract T parseInput(String strInput);
 
-    protected abstract long partOne(T input);
+    protected abstract Q partOne(T input);
 
-    protected abstract long partTwo(T input);
+    protected abstract Q partTwo(T input);
 
     protected abstract String getYear();
 

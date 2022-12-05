@@ -14,7 +14,7 @@ class Day01 extends AoC2019Day<List<Long>> {
     }
 
     @Override
-    protected long partOne(List<Long> input) {
+    protected Long partOne(List<Long> input) {
 
         return input.stream()
                 .mapToLong(this::calculateFuel)
@@ -22,7 +22,7 @@ class Day01 extends AoC2019Day<List<Long>> {
     }
 
     @Override
-    protected long partTwo(List<Long> input) {
+    protected Long partTwo(List<Long> input) {
 
         return input.stream()
                 .flatMapToLong(mass -> LongStream.iterate(mass, m -> m > 0, this::calculateFuel).skip(1))

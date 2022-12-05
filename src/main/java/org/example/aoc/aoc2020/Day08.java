@@ -23,7 +23,7 @@ class Day08 extends AoC2020Day<List<Day08.Instruction>> {
             this.accumulator = accumulator;
         }
 
-        public int getAccumulator() {
+        public long getAccumulator() {
 
             return this.accumulator;
         }
@@ -42,7 +42,7 @@ class Day08 extends AoC2020Day<List<Day08.Instruction>> {
     }
 
     @Override
-    protected long partOne(List<Instruction> input) {
+    protected Long partOne(List<Instruction> input) {
 
         try {
             return run(input, 0);
@@ -52,7 +52,7 @@ class Day08 extends AoC2020Day<List<Day08.Instruction>> {
     }
 
     @Override
-    protected long partTwo(List<Instruction> input) {
+    protected Long partTwo(List<Instruction> input) {
 
         long accumulator = 0;
 
@@ -87,7 +87,7 @@ class Day08 extends AoC2020Day<List<Day08.Instruction>> {
         return accumulator;
     }
 
-    private Integer run(List<Instruction> input, int i) throws LoopException {
+    private long run(List<Instruction> input, int i) throws LoopException {
 
         int accumulator = 0;
         final HashSet<Integer> visitedInstructions = new HashSet<>();

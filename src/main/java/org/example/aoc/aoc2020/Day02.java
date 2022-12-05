@@ -25,7 +25,7 @@ class Day02 extends AoC2020Day<List<Day02.PasswordValidation>> {
     }
 
     @Override
-    protected long partOne(List<PasswordValidation> input) {
+    protected Long partOne(List<PasswordValidation> input) {
 
         return input.stream()
                 .filter(passwordValidation -> {
@@ -39,7 +39,7 @@ class Day02 extends AoC2020Day<List<Day02.PasswordValidation>> {
     }
 
     @Override
-    protected long partTwo(List<PasswordValidation> input) {
+    protected Long partTwo(List<PasswordValidation> input) {
 
         return input.stream()
                 .filter(passwordValidation -> {

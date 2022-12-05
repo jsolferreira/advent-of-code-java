@@ -14,25 +14,30 @@ class Day01 extends AoC2020Day<List<Integer>> {
     }
 
     @Override
-    protected long partOne(List<Integer> input) {
+    protected Long partOne(List<Integer> input) {
 
         return IntStream.range(0, input.size())
-                .flatMap(i -> IntStream.range(i + 1, input.size())
+                .boxed()
+                .flatMapToLong(i -> IntStream.range(i + 1, input.size())
                         .filter(j -> input.get(i) + input.get(j) == 2020)
-                        .map(j -> input.get(i) * input.get(j)))
+                        .boxed()
+                        .mapToLong(j -> (long) input.get(i) * input.get(j)))
                 .findFirst()
                 .orElseThrow();
     }
 
     @Override
-    protected long partTwo(List<Integer> input) {
+    protected Long partTwo(List<Integer> input) {
 
         return IntStream.range(0, input.size())
-                .flatMap(i -> IntStream.range(i + 1, input.size())
+                .boxed()
+                .flatMapToLong(i -> IntStream.range(i + 1, input.size())
                         .filter(j -> input.get(i) + input.get(j) < 2020)
-                        .flatMap(j -> IntStream.range(j + 1, input.size())
+                        .boxed()
+                        .flatMapToLong(j -> IntStream.range(j + 1, input.size())
                                 .filter(k -> input.get(i) + input.get(j) + input.get(k) == 2020)
-                                .map(k -> input.get(i) * input.get(j) * input.get(k))))
+                                .boxed()
+                                .mapToLong(k -> (long) input.get(i) * input.get(j) * input.get(k))))
                 .findFirst()
                 .orElseThrow();
     }

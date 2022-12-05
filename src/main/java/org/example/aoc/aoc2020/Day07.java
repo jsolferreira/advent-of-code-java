@@ -36,7 +36,7 @@ class Day07 extends AoC2020Day<Map<String, Map<String, Integer>>> {
     }
 
     @Override
-    protected long partOne(Map<String, Map<String, Integer>> input) {
+    protected Long partOne(Map<String, Map<String, Integer>> input) {
 
         final HashMap<String, Boolean> visitedBags = new HashMap<>();
 
@@ -72,7 +72,7 @@ class Day07 extends AoC2020Day<Map<String, Map<String, Integer>>> {
     }
 
     @Override
-    protected long partTwo(Map<String, Map<String, Integer>> input) {
+    protected Long partTwo(Map<String, Map<String, Integer>> input) {
 
         final HashMap<String, Long> visitedBags = new HashMap<>();
 

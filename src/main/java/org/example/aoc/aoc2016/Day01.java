@@ -52,7 +52,7 @@ class Day01 extends AoC2016Day<List<Day01.Instruction>> {
     }
 
     @Override
-    protected long partOne(List<Instruction> input) {
+    protected Long partOne(List<Instruction> input) {
 
         int i = 0;
         int j = 0;
@@ -74,7 +74,7 @@ class Day01 extends AoC2016Day<List<Day01.Instruction>> {
     }
 
     @Override
-    protected long partTwo(List<Instruction> input) {
+    protected Long partTwo(List<Instruction> input) {
 
         final HashSet<Location> visitedLocations = new HashSet<>();
 

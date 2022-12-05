@@ -14,7 +14,7 @@ class Day18 extends AoC2020Day<List<String>> {
     }
 
     @Override
-    protected long partOne(List<String> input) {
+    protected Long partOne(List<String> input) {
         final Pattern pattern = Pattern.compile("\\(([^(]*?)\\)");
 
         return input.stream()
@@ -55,7 +55,7 @@ class Day18 extends AoC2020Day<List<String>> {
     }
 
     @Override
-    protected long partTwo(List<String> input) {
+    protected Long partTwo(List<String> input) {
         final Pattern pattern = Pattern.compile("\\(([^(]*?)\\)");
 
         return input.stream()

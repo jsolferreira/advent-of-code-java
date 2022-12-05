@@ -30,7 +30,7 @@ class Day17 extends AoC2020Day<Day17.State[][][][]> {
     }
 
     @Override
-    protected long partOne(State[][][][] input) {
+    protected Long partOne(State[][][][] input) {
 
         final State[][][][] layout = Arrays.stream(input)
                 .map(w -> Arrays.stream(w)
@@ -186,7 +186,7 @@ class Day17 extends AoC2020Day<Day17.State[][][][]> {
     }
 
     @Override
-    protected long partTwo(State[][][][] input) {
+    protected Long partTwo(State[][][][] input) {
 
         State[][][][] inputExpanded = expandWPlane(input);
 

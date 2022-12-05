@@ -165,7 +165,7 @@ class Day12 extends AoC2020Day<List<Day12.Instruction>> {
             }
         }
 
-        public int getManhattanDistance() {
+        public long getManhattanDistance() {
 
             return Math.abs(x) + Math.abs(y);
         }
@@ -276,7 +276,7 @@ class Day12 extends AoC2020Day<List<Day12.Instruction>> {
             }
         }
 
-        public int getManhattanDistance() {
+        public long getManhattanDistance() {
 
             return Math.abs(shipX) + Math.abs(shipY);
         }
@@ -308,7 +308,7 @@ class Day12 extends AoC2020Day<List<Day12.Instruction>> {
     }
 
     @Override
-    protected long partOne(List<Instruction> input) {
+    protected Long partOne(List<Instruction> input) {
 
         final Ship ship = new Ship();
 
@@ -318,7 +318,7 @@ class Day12 extends AoC2020Day<List<Day12.Instruction>> {
     }
 
     @Override
-    protected long partTwo(List<Instruction> input) {
+    protected Long partTwo(List<Instruction> input) {
 
         final ShipAndWaypoint ship = new ShipAndWaypoint();
 

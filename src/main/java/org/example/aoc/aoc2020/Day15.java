@@ -16,18 +16,18 @@ class Day15 extends AoC2020Day<List<Integer>> {
     }
 
     @Override
-    protected long partOne(List<Integer> input) {
+    protected Long partOne(List<Integer> input) {
 
         return run(input, 2020);
     }
 
     @Override
-    protected long partTwo(List<Integer> input) {
+    protected Long partTwo(List<Integer> input) {
 
         return run(input, 30000000);
     }
 
-    private Integer run(List<Integer> input, int numberSpoken) {
+    private long run(List<Integer> input, int numberSpoken) {
 
         final Map<Integer, Integer> saidNumbers = new HashMap<>();
 

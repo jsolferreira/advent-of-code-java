@@ -12,22 +12,22 @@ class Day03 extends AoC2022Day<List<String>> {
     }
 
     @Override
-    protected long partOne(List<String> input) {
+    protected Long partOne(List<String> input) {
 
         return input.stream()
                 .map(this::getItems)
                 .map(this::findCommonItemType)
-                .mapToInt(this::getType)
+                .mapToLong(this::getType)
                 .sum();
     }
 
     @Override
-    protected long partTwo(List<String> input) {
+    protected Long partTwo(List<String> input) {
 
         return IntStream.iterate(0, i -> i < input.size(), i -> i + 3)
                 .mapToObj(i -> input.subList(i, i + 3))
                 .map(this::findCommonItemType)
-                .mapToInt(this::getType)
+                .mapToLong(this::getType)
                 .sum();
     }
 
@@ -49,7 +49,7 @@ class Day03 extends AoC2022Day<List<String>> {
                 .orElseThrow();
     }
 
-    private int getType(char letter) {
+    private long getType(char letter) {
 
         return Character.isUpperCase(letter) ? letter - 38 : letter - 96;
     }

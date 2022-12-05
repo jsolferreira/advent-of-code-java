@@ -17,9 +17,9 @@ class Day06 extends AoC2020Day<List<List<String>>> {
     }
 
     @Override
-    protected long partOne(List<List<String>> input) {
+    protected Long partOne(List<List<String>> input) {
 
-        return input.stream().reduce(0,
+        return input.stream().reduce(0L,
                                      (acc1, val1) -> acc1 + val1.stream()
                                              .reduce(new HashSet<Character>(),
                                                      (acc, val) -> {
@@ -29,13 +29,13 @@ class Day06 extends AoC2020Day<List<List<String>>> {
                                                          return acc;
                                                      },
                                                      (a, b) -> new HashSet<>()).size(),
-                                     Integer::sum);
+                                     Long::sum);
     }
 
     @Override
-    protected long partTwo(List<List<String>> input) {
+    protected Long partTwo(List<List<String>> input) {
 
-        return input.stream().reduce(0,
+        return input.stream().reduce(0L,
                                      (acc1, group) -> acc1 + group.stream()
                                              .reduce((Set<Character>) null,
                                                      (acc, val) -> {
@@ -52,7 +52,7 @@ class Day06 extends AoC2020Day<List<List<String>>> {
                                                                  .collect(Collectors.toUnmodifiableSet());
                                                      },
                                                      (a, b) -> new HashSet<>()).size(),
-                                     Integer::sum);
+                                     Long::sum);
     }
 
     private Set<Character> stringToCharacterSet(String s) {
