@@ -14,17 +14,19 @@ class Day06 extends AoC2022Day<String> {
     @Override
     protected Long partOne(String input) {
 
-        return LongStream.range(4, input.length())
-                .filter(i -> isStartOfMarker(input, (int) i, 4))
-                .findFirst()
-                .orElseThrow();
+        return findFirstMarker(input, 4);
     }
 
     @Override
     protected Long partTwo(String input) {
 
-        return LongStream.range(14, input.length())
-                .filter(i -> isStartOfMarker(input, (int) i, 14))
+        return findFirstMarker(input, 14);
+    }
+
+    private Long findFirstMarker(String input, int distinctCharacters) {
+
+        return LongStream.range(distinctCharacters, input.length())
+                .filter(i -> isStartOfMarker(input, (int) i, distinctCharacters))
                 .findFirst()
                 .orElseThrow();
     }
