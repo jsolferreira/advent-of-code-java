@@ -1,5 +1,6 @@
 package org.example.aoc.aoc2021;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -7,45 +8,47 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day03 extends AoC2021Day<List<List<Integer>>> {
+class Day03 extends AoC2021Day<List<List<String>>> {
 
     @Override
-    protected List<List<Integer>> parseInput(String strInput) {
+    protected List<List<String>> parseInput(String strInput) {
 
         return strInput.lines()
-                .map(line -> line.chars()
-                        .mapToObj(Character::getNumericValue)
-                        .toList())
+                .map(line -> Arrays.asList(line.split("")))
                 .toList();
     }
 
     @Override
-    protected Long partOne(List<List<Integer>> input) {
+    protected Long partOne(List<List<String>> input) {
 
         final int n = input.get(0).size();
 
-        List<Map<Integer, Long>> mapStream = IntStream.range(0, n)
+        final List<Map<String, Long>> bitCounting = IntStream.range(0, n)
                 .mapToObj(i -> input.stream()
                         .map(in -> in.get(i))
                         .collect((Collectors.groupingBy(Function.identity(),
                                                         Collectors.counting()))))
                 .toList();
 
-        String x = mapStream.stream()
-                .flatMap(entry -> entry.entrySet().stream().max(Comparator.comparingInt(a -> a.getValue().intValue())).stream())
-                .map(entry -> entry.getKey().toString())
+        final String gammaRate = bitCounting.stream()
+                .flatMap(entry -> entry.entrySet().stream()
+                        .max(Comparator.comparingLong(Map.Entry::getValue))
+                        .map(Map.Entry::getKey)
+                        .stream())
                 .collect(Collectors.joining());
 
-        String y = mapStream.stream()
-                .flatMap(entry -> entry.entrySet().stream().min(Comparator.comparingInt(a -> a.getValue().intValue())).stream())
-                .map(entry -> entry.getKey().toString())
+        final String epsilon = bitCounting.stream()
+                .flatMap(entry -> entry.entrySet().stream()
+                        .min(Comparator.comparingLong(Map.Entry::getValue))
+                        .map(Map.Entry::getKey)
+                        .stream())
                 .collect(Collectors.joining());
 
-        return Long.parseLong(x, 2) * Long.parseLong(y, 2);
+        return Long.parseLong(gammaRate, 2) * Long.parseLong(epsilon, 2);
     }
 
     @Override
-    protected Long partTwo(List<List<Integer>> input) {
+    protected Long partTwo(List<List<String>> input) {
 
         return null;
     }
