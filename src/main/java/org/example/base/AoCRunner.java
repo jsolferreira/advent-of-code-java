@@ -3,6 +3,7 @@ package org.example.base;
 import org.example.aoc.aoc2016.AoC2016;
 import org.example.aoc.aoc2019.AoC2019;
 import org.example.aoc.aoc2020.AoC2020;
+import org.example.aoc.aoc2021.AoC2021;
 import org.example.aoc.aoc2022.AoC2022;
 import org.example.cli.Cli;
 import org.example.exceptions.YearNotFoundException;
@@ -16,10 +17,12 @@ public class AoCRunner {
             "2016", AoC2016.class,
             "2019", AoC2019.class,
             "2020", AoC2020.class,
+            "2021", AoC2021.class,
             "2022", AoC2022.class
     );
 
     private AoCRunner() {
+
     }
 
     public static void start() {
