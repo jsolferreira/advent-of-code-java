@@ -140,8 +140,7 @@ class Day07 extends AoC2022Day<Day07.Directory> {
                         Stream.of(directory),
                         directory.directories.stream()
                                 .map(this::flat)
-                                .flatMap(Collection::stream)
-                )
+                                .flatMap(Collection::stream))
                 .toList();
     }
 
