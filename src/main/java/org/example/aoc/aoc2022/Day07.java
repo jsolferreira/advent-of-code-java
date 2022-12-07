@@ -56,14 +56,12 @@ class Day07 extends AoC2022Day<Day07.Directory> {
                     }
 
                     final List<Directory> directories = line.lines()
-                            .skip(1)
                             .map(directoryPattern::matcher)
                             .filter(Matcher::find)
                             .map(matcher -> new Directory(matcher.group(1)))
                             .toList();
 
                     final List<File> files = line.lines()
-                            .skip(1)
                             .map(filePattern::matcher)
                             .filter(Matcher::find)
                             .map(matcher -> new File(matcher.group(2), Long.parseLong(matcher.group(1))))
