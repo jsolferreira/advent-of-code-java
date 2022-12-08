@@ -34,9 +34,9 @@ class Day08 extends AoC2022Day<Integer[][]> {
     @Override
     protected Long partTwo(Integer[][] input) {
 
-        return IntStream.range(0, input.length - 1)
+        return IntStream.range(1, input.length - 1)
                 .boxed()
-                .flatMapToLong(i -> IntStream.range(0, input[i].length - 1)
+                .flatMapToLong(i -> IntStream.range(1, input[i].length - 1)
                         .mapToLong(j -> calculateScenicScore(input, i, j)))
                 .max()
                 .orElseThrow();
