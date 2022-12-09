@@ -13,7 +13,7 @@ public class ResultsPrinter {
 
                 System.out.println(dayResult.day() + " | " +
                                            dayResult.part1Result() + " | " +
-                                           dayResult.part2Duration() + " | " +
+                                           dayResult.part1Duration() + " | " +
                                            dayResult.part2Result() + " | " +
                                            dayResult.part2Duration() + " | ");
             }
