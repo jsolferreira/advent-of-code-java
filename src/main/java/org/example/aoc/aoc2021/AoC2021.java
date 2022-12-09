@@ -2,6 +2,7 @@ package org.example.aoc.aoc2021;
 
 import org.example.base.AoCYear;
 import org.example.base.Runnable;
+import org.example.base.result.DayResult;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -9,7 +10,13 @@ import java.util.List;
 public class AoC2021 extends AoCYear {
 
     @Override
-    protected List<Class<? extends Runnable>> getDays() {
+    protected String getYear() {
+
+        return "2021";
+    }
+
+    @Override
+    protected List<Class<? extends Runnable<DayResult>>> getDays() {
 
         return List.of(
                 Day01.class,
@@ -19,10 +26,10 @@ public class AoC2021 extends AoCYear {
     }
 
     @Override
-    protected Runnable newDayInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
-                                                                          InvocationTargetException,
-                                                                          InstantiationException,
-                                                                          IllegalAccessException {
+    protected Runnable<DayResult> newDayInstance(Class<? extends Runnable<DayResult>> c) throws NoSuchMethodException,
+                                                                                                InvocationTargetException,
+                                                                                                InstantiationException,
+                                                                                                IllegalAccessException {
 
         return c.getDeclaredConstructor().newInstance();
     }

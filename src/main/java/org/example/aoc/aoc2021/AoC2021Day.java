@@ -2,13 +2,13 @@ package org.example.aoc.aoc2021;
 
 import org.example.base.AoCDay;
 
-public abstract class AoC2021Day<T> extends AoCDay<T, Long> {
+public abstract class AoC2021Day<T> extends AoCDay<T> {
 
     protected abstract T parseInput(String strInput);
 
-    protected abstract Long partOne(T input);
+    protected abstract Object partOne(T input);
 
-    protected abstract Long partTwo(T input);
+    protected abstract Object partTwo(T input);
 
     @Override
     protected String getYear() {

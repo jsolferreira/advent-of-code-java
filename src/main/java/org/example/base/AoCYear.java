@@ -1,5 +1,7 @@
 package org.example.base;
 
+import org.example.base.result.DayResult;
+import org.example.base.result.YearResult;
 import org.example.cli.Cli;
 import org.example.exceptions.DayNotFoundException;
 
@@ -7,46 +9,49 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-public abstract class AoCYear implements Runnable {
+public abstract class AoCYear implements Runnable<YearResult> {
 
-    private final List<Class<? extends Runnable>> dayClasses = getDays();
+    private final List<Class<? extends Runnable<DayResult>>> dayClasses = getDays();
 
     @Override
-    public void run() {
+    public YearResult run() {
 
-        Cli.getDay()
+        final List<DayResult> dayResults = Cli.getDay()
                 .map(Integer::parseInt)
-                .ifPresentOrElse(this::runDay, this::runAllDays);
+                .map(day -> List.of(runDay(day)))
+                .orElseGet(this::runAllDays);
+
+        return new YearResult(getYear(), dayResults);
     }
 
-    private void runDay(int day) {
+    private List<DayResult> runAllDays() {
+
+        return dayClasses.stream().map(this::runDay).toList();
+    }
+
+    private DayResult runDay(int day) {
 
         if (day > dayClasses.size()) {
 
             throw new DayNotFoundException();
         }
 
-        final Class<? extends Runnable> c = dayClasses.get(day - 1);
+        final Class<? extends Runnable<DayResult>> c = dayClasses.get(day - 1);
 
         if (c == null) {
 
             throw new DayNotFoundException();
         }
 
-        runDay(c);
+        return runDay(c);
     }
 
-    private void runAllDays() {
-
-        dayClasses.forEach(this::runDay);
-    }
-
-    private void runDay(Class<? extends Runnable> c) {
+    private DayResult runDay(Class<? extends Runnable<DayResult>> c) {
 
         try {
-            final Runnable runnable = newDayInstance(c);
+            final Runnable<DayResult> runnable = newDayInstance(c);
 
-            runnable.run();
+            return runnable.run();
         } catch (NoSuchMethodException |
                  InvocationTargetException |
                  InstantiationException |
@@ -57,10 +62,12 @@ public abstract class AoCYear implements Runnable {
         }
     }
 
-    protected abstract List<Class<? extends Runnable>> getDays();
+    protected abstract String getYear();
 
-    protected abstract Runnable newDayInstance(Class<? extends Runnable> c) throws NoSuchMethodException,
-                                                                                   InvocationTargetException,
-                                                                                   InstantiationException,
-                                                                                   IllegalAccessException;
+    protected abstract List<Class<? extends Runnable<DayResult>>> getDays();
+
+    protected abstract Runnable<DayResult> newDayInstance(Class<? extends Runnable<DayResult>> c) throws NoSuchMethodException,
+                                                                                                         InvocationTargetException,
+                                                                                                         InstantiationException,
+                                                                                                         IllegalAccessException;
 }

@@ -1,5 +1,7 @@
 package org.example.base;
 
+import org.example.base.result.DayResult;
+import org.example.base.result.PartResult;
 import org.example.cli.Cli;
 
 import java.io.File;
@@ -8,21 +10,23 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.function.Consumer;
+import java.util.function.Function;
 
-public abstract class AoCDay<T, Q> implements Runnable {
+public abstract class AoCDay<T> implements Runnable<DayResult> {
 
-    protected Q partOneResult;
+    protected Object partOneResult;
 
     @Override
-    public void run() throws IOException {
+    public DayResult run() throws IOException {
 
         final String strInput = readFileInput();
 
         final T input = parseInput(strInput);
 
-        executePart(input, this::executePartOne);
-        executePart(input, this::executePartTwo);
+        final PartResult part1Result = executePart(input, this::executePartOne);
+        final PartResult part2Result = executePart(input, this::executePartTwo);
+
+        return new DayResult(getDay(), part1Result.result(), part1Result.duration(), part2Result.result(), part2Result.duration());
     }
 
     private String readFileInput() throws IOException {
@@ -43,48 +47,47 @@ public abstract class AoCDay<T, Q> implements Runnable {
         return new String(is.readAllBytes(), StandardCharsets.UTF_8).stripTrailing();
     }
 
-    private void executePart(T input, Consumer<T> partConsumer) {
+    private PartResult executePart(T input, Function<T, Object> partConsumer) {
 
         if (Cli.measureTime()) {
 
-            executeAndMeasure(input, partConsumer);
+            return executeAndMeasure(input, partConsumer);
         } else {
 
-            partConsumer.accept(input);
+            return new PartResult(partConsumer.apply(input), null);
         }
     }
 
-    private void executePartOne(T input) {
+    private Object executePartOne(T input) {
 
         partOneResult = partOne(input);
-        System.out.println("Part One: " + partOneResult);
+
+        return partOneResult;
     }
 
-    private void executePartTwo(T input) {
+    private Object executePartTwo(T input) {
 
-        final Q partTwoResult = partTwo(input);
-
-        System.out.println("Part Two: " + partTwoResult);
+        return partTwo(input);
     }
 
-    private void executeAndMeasure(T input, Consumer<T> function) {
+    private PartResult executeAndMeasure(T input, Function<T, Object> function) {
 
         final Instant start = Instant.now();
 
-        function.accept(input);
+        final Object result = function.apply(input);
 
         final Instant end = Instant.now();
 
         final long l = Duration.between(start, end).toMillis();
 
-        System.out.println("Duration: " + l + " milliseconds");
+        return new PartResult(result, l);
     }
 
     protected abstract T parseInput(String strInput);
 
-    protected abstract Q partOne(T input);
+    protected abstract Object partOne(T input);
 
-    protected abstract Q partTwo(T input);
+    protected abstract Object partTwo(T input);
 
     protected abstract String getYear();
 
