@@ -34,22 +34,16 @@ class Day03 extends AoC2015Day<List<Day03.Direction>> {
     @Override
     protected Integer partOne(List<Direction> input) {
 
-        Position position = new Position(0, 0);
+        Position santaPosition = new Position(0, 0);
         final Set<Position> visitedPositions = new HashSet<>();
-        visitedPositions.add(position);
+        visitedPositions.add(santaPosition);
 
         for (Direction direction : input) {
 
-            position = switch (direction) {
-                case NORTH -> new Position(position.i + 1, position.j);
-                case SOUTH -> new Position(position.i - 1, position.j);
-                case EAST -> new Position(position.i, position.j - 1);
-                case WEST -> new Position(position.i, position.j + 1);
-            };
+            santaPosition = movePosition(santaPosition, direction);
 
-            visitedPositions.add(position);
+            visitedPositions.add(santaPosition);
         }
-        
 
         return visitedPositions.size();
     }
@@ -57,7 +51,39 @@ class Day03 extends AoC2015Day<List<Day03.Direction>> {
     @Override
     protected Integer partTwo(List<Direction> input) {
 
-        return null;
+        Position santaPosition = new Position(0, 0);
+        Position robotSantaPosition = new Position(0, 0);
+        final Set<Position> visitedPositions = new HashSet<>();
+        visitedPositions.add(santaPosition);
+
+        for (int i = 0; i < input.size(); i++) {
+
+            final Direction direction = input.get(i);
+
+            if (i % 2 == 0) {
+
+                santaPosition = movePosition(santaPosition, direction);
+
+                visitedPositions.add(santaPosition);
+            } else {
+
+                robotSantaPosition = movePosition(robotSantaPosition, direction);
+
+                visitedPositions.add(robotSantaPosition);
+            }
+        }
+
+        return visitedPositions.size();
+    }
+
+    private Position movePosition(Position position, Direction direction) {
+
+        return switch (direction) {
+            case NORTH -> new Position(position.i + 1, position.j);
+            case SOUTH -> new Position(position.i - 1, position.j);
+            case EAST -> new Position(position.i, position.j - 1);
+            case WEST -> new Position(position.i, position.j + 1);
+        };
     }
 
     @Override
