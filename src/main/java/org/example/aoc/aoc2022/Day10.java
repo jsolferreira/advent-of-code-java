@@ -116,7 +116,7 @@ class Day10 extends AoC2022Day<List<Day10.Instruction>> {
 
     private boolean isSpritePositionedInPixelBeingDrawn(int spritePosition, int cycle) {
 
-        return spritePosition - 1 == cycle || spritePosition == cycle || spritePosition + 1 == cycle;
+        return spritePosition - 1 <= cycle && cycle <= spritePosition + 1;
     }
 
     private void printCRT(char[][] screen) {
