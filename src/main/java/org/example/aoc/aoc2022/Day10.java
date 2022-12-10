@@ -4,12 +4,12 @@ import java.util.List;
 
 class Day10 extends AoC2022Day<List<Day10.Instruction>> {
 
-    private enum Direction {
+    private enum InstructionName {
         NOOP,
         ADDX
     }
 
-    protected record Instruction(Direction direction, int steps) {
+    protected record Instruction(InstructionName name, int value) {
     }
 
     @Override
@@ -19,15 +19,15 @@ class Day10 extends AoC2022Day<List<Day10.Instruction>> {
                 .map(line -> {
                     final String[] split = line.split(" ");
 
-                    final Direction direction = switch (split[0]) {
-                        case "noop" -> Direction.NOOP;
-                        case "addx" -> Direction.ADDX;
+                    final InstructionName instructionName = switch (split[0]) {
+                        case "noop" -> InstructionName.NOOP;
+                        case "addx" -> InstructionName.ADDX;
                         default -> throw new RuntimeException();
                     };
 
                     final int steps = split.length == 1 ? 0 : Integer.parseInt(split[1]);
 
-                    return new Instruction(direction, steps);
+                    return new Instruction(instructionName, steps);
                 })
                 .toList();
     }
@@ -49,11 +49,11 @@ class Day10 extends AoC2022Day<List<Day10.Instruction>> {
 
             final Instruction instruction = input.get(i);
 
-            if (instruction.direction.equals(Direction.ADDX)) {
+            if (instruction.name.equals(InstructionName.ADDX)) {
 
                 if (inCycle) {
 
-                    x += instruction.steps;
+                    x += instruction.value;
                     i++;
                 }
 
@@ -82,11 +82,11 @@ class Day10 extends AoC2022Day<List<Day10.Instruction>> {
 
             final Instruction instruction = input.get(i);
 
-            if (instruction.direction.equals(Direction.ADDX)) {
+            if (instruction.name.equals(InstructionName.ADDX)) {
 
                 if (inCycle) {
 
-                    spritePosition += instruction.steps;
+                    spritePosition += instruction.value;
                     i++;
                 }
 
