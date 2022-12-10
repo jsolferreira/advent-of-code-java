@@ -105,8 +105,6 @@ class Day10 extends AoC2022Day<List<Day10.Instruction>> {
 
     private void drawPixel(char[][] screen, int cycle, int spritePosition) {
 
-        screen[cycle / 40][cycle % 40] = isSpritePositionedInPixelBeingDrawn(spritePosition, cycle % 40) ? '#' : '.';
-
         if (isSpritePositionedInPixelBeingDrawn(spritePosition, cycle % 40)) {
 
             screen[cycle / 40][cycle % 40] = '#';
