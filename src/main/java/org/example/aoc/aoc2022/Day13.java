@@ -141,7 +141,7 @@ class Day13 extends AoC2022Day<String> {
 
         packets.sort(this::comparePackets);
 
-        return IntStream.range(1, packets.size() - 1)
+        return IntStream.range(1, packets.size() + 1)
                 .filter(i -> packets.get(i - 1) == dividerPacket1 || packets.get(i - 1) == dividerPacket2)
                 .reduce(1, (a, b) -> a * b);
     }
