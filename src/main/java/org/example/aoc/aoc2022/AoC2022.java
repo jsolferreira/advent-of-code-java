@@ -32,7 +32,8 @@ public class AoC2022 extends AoCYear {
                 Day11.class,
                 Day12.class,
                 Day13.class,
-                Day14.class
+                Day14.class,
+                Day15.class
         );
     }
 
