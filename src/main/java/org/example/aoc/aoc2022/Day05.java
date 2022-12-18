@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day05 extends AoC2022StringDay<Day05.Input> {
+class Day05 extends AoC2022Day<Day05.Input> {
 
     protected record Input(List<Stack<String>> stacks, List<Procedure> procedures) {
     }
