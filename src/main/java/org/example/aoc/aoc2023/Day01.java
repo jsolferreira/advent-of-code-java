@@ -38,8 +38,7 @@ class Day01 extends AoC2023Day<List<String>> {
                 .mapToObj(stringCharGetter)
                 .filter(Character::isDigit)
                 .findFirst()
-                .map(String::valueOf)
-                .map(Integer::parseInt)
+                .map(Character::getNumericValue)
                 .orElse(0);
     }
 
@@ -47,23 +46,22 @@ class Day01 extends AoC2023Day<List<String>> {
     protected Integer partTwo(List<String> input) {
 
         final Map<String, Character> digits = Map.of("one", '1',
-                "two", '2',
-                "three", '3',
-                "four", '4',
-                "five", '5',
-                "six", '6',
-                "seven", '7',
-                "eight", '8',
-                "nine", '9');
+                                                     "two", '2',
+                                                     "three", '3',
+                                                     "four", '4',
+                                                     "five", '5',
+                                                     "six", '6',
+                                                     "seven", '7',
+                                                     "eight", '8',
+                                                     "nine", '9');
 
         int sum = 0;
 
         for (String s : input) {
 
             Character firstDigit = null;
-            int i = 0;
 
-            while (i < s.length()) {
+            for (int i = 0; i < s.length(); i++) {
 
                 char c = s.charAt(i);
 
@@ -79,9 +77,9 @@ class Day01 extends AoC2023Day<List<String>> {
 
                     c = s.charAt(i + offset);
 
-                    int finalXx = offset;
+                    int finalOffset = offset;
                     char finalC = c;
-                    possibleDigits = possibleDigits.stream().filter(z -> z.charAt(finalXx) == finalC).collect(Collectors.toSet());
+                    possibleDigits = possibleDigits.stream().filter(z -> z.charAt(finalOffset) == finalC).collect(Collectors.toSet());
                     offset++;
                 }
 
@@ -110,14 +108,11 @@ class Day01 extends AoC2023Day<List<String>> {
                         }
                     }
                 }
-
-                i++;
             }
 
             Character lastDigit = null;
-            int j = s.length() - 1;
 
-            while (j >= 0) {
+            for (int j = s.length() - 1; j >= 0; j--) {
 
                 char c = s.charAt(j);
 
@@ -133,9 +128,12 @@ class Day01 extends AoC2023Day<List<String>> {
 
                     c = s.charAt(j - offset);
 
-                    int finalXx = offset;
+                    int finalOffset = offset;
                     char finalC = c;
-                    possibleDigits = possibleDigits.stream().filter(z -> z.charAt(z.length() - 1 - finalXx) == finalC).collect(Collectors.toSet());
+                    possibleDigits = possibleDigits
+                            .stream()
+                            .filter(z -> z.charAt(z.length() - 1 - finalOffset) == finalC)
+                            .collect(Collectors.toSet());
                     offset++;
                 }
 
@@ -164,11 +162,9 @@ class Day01 extends AoC2023Day<List<String>> {
                         }
                     }
                 }
-
-                j--;
             }
 
-            sum += Integer.parseInt(String.valueOf(firstDigit)) * 10 + Integer.parseInt(String.valueOf(lastDigit));
+            sum += Character.getNumericValue(firstDigit) * 10 + Character.getNumericValue(lastDigit);
         }
 
         return sum;
