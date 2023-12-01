@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ResultsPrinter {
 
-    public static void x(List<YearResult> yearResults) {
+    public static void log(List<YearResult> yearResults) {
 
         for (YearResult yearResult : yearResults) {
             System.out.println(yearResult.year());

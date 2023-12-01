@@ -6,6 +6,7 @@ import org.example.aoc.aoc2019.AoC2019;
 import org.example.aoc.aoc2020.AoC2020;
 import org.example.aoc.aoc2021.AoC2021;
 import org.example.aoc.aoc2022.AoC2022;
+import org.example.aoc.aoc2023.AoC2023;
 import org.example.base.result.ResultsPrinter;
 import org.example.base.result.YearResult;
 import org.example.cli.Cli;
@@ -14,6 +15,7 @@ import org.example.exceptions.YearNotFoundException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class AoCRunner {
 
@@ -23,7 +25,8 @@ public class AoCRunner {
             "2019", AoC2019.class,
             "2020", AoC2020.class,
             "2021", AoC2021.class,
-            "2022", AoC2022.class
+            "2022", AoC2022.class,
+            "2023", AoC2023.class
     );
 
     private AoCRunner() {
@@ -36,7 +39,7 @@ public class AoCRunner {
                 .map(year -> List.of(runYear(year)))
                 .orElseGet(AoCRunner::runAllYears);
 
-        ResultsPrinter.x(dayResults);
+        ResultsPrinter.log(dayResults);
     }
 
     private static List<YearResult> runAllYears() {
@@ -46,14 +49,9 @@ public class AoCRunner {
 
     private static YearResult runYear(String year) {
 
-        final Class<? extends AoCYear> c = classes.get(year);
-
-        if (c == null) {
-
-            throw new YearNotFoundException();
-        }
-
-        return runYear(c);
+        return Optional.ofNullable(classes.get(year))
+                .map(AoCRunner::runYear)
+                .orElseThrow(YearNotFoundException::new);
     }
 
     private static YearResult runYear(Class<? extends AoCYear> c) {
