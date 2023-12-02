@@ -19,7 +19,8 @@ public class AoC2023 extends AoCYear {
     protected List<Class<? extends Runnable<DayResult>>> getDays() {
 
         return List.of(
-                Day01.class
+                Day01.class,
+                Day02.class
         );
     }
 
