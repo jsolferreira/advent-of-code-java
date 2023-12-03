@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4db848e-f937-4896-ab68-60d33e31972a" name="Changes" comment="AOC2023 day01">
+    <list default="true" id="d4db848e-f937-4896-ab68-60d33e31972a" name="Changes" comment="AOC2023 day02">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/Day05.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/AoC2018.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/AoC2018Day.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/Day01.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/Day02.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day19.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day20.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day02.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day03.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2015/day05.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day02.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day19.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day20.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2023/day02.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2023/day03.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/AoC2015.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/AoC2015.java" afterDir="false" />
@@ -22,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/AoC2023.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/AoC2023.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day17.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day17.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,8 +66,8 @@
       <list>
         <option value="Interface" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -86,28 +92,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/jorgeferreira/advent-of-code-java/src/main/resources/input/aoc2023",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.25977013",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jorgeferreira/advent-of-code-java/src/main/resources/input/aoc2023&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.25977013&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "TEXT",
-      "JSON"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;TEXT&quot;,
+      &quot;JSON&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/input/aoc2023" />
@@ -131,7 +137,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="advent-of-code-java.main" />
-      <option name="PROGRAM_PARAMETERS" value="-y 2023 -D 02 -t" />
+      <option name="PROGRAM_PARAMETERS" value="-y 2023 -D 03 -t" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.base.*" />
@@ -249,7 +255,9 @@
       <workItem from="1701369973972" duration="7455000" />
       <workItem from="1701421636954" duration="7619000" />
       <workItem from="1701431361654" duration="10632000" />
-      <workItem from="1701506402177" duration="2571000" />
+      <workItem from="1701506402177" duration="3254000" />
+      <workItem from="1701551389685" duration="3167000" />
+      <workItem from="1701593130108" duration="4179000" />
     </task>
     <task id="LOCAL-00001" summary="AOC2022 day6">
       <created>1670316894847</created>
@@ -372,7 +380,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701435383767</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="AOC2023 day02">
+      <option name="closed" value="true" />
+      <created>1701508993027</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701508993027</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,7 +428,8 @@
     <MESSAGE value="AOC2022 day14" />
     <MESSAGE value="AOC2022 day15" />
     <MESSAGE value="AOC2023 day01" />
-    <option name="LAST_COMMIT_MESSAGE" value="AOC2023 day01" />
+    <MESSAGE value="AOC2023 day02" />
+    <option name="LAST_COMMIT_MESSAGE" value="AOC2023 day02" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -476,6 +493,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day20.java</url>
           <line>47</line>
           <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day03.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="189" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
