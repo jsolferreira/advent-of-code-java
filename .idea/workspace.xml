@@ -12,21 +12,19 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/Day02.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day19.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day20.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day03.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2015/day05.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day01.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day02.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day19.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day20.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2023/day03.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/AoC2015.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/AoC2015.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2021/Day03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2021/Day03.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/AoC2022.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/AoC2022.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/AoC2023.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/AoC2023.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day03.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day17.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day17.txt" afterDir="false" />
     </list>
@@ -257,7 +255,7 @@
       <workItem from="1701431361654" duration="10632000" />
       <workItem from="1701506402177" duration="3254000" />
       <workItem from="1701551389685" duration="3167000" />
-      <workItem from="1701593130108" duration="4179000" />
+      <workItem from="1701593130108" duration="4499000" />
     </task>
     <task id="LOCAL-00001" summary="AOC2022 day6">
       <created>1670316894847</created>
@@ -388,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701508993027</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="AOC2023 day02">
+      <option name="closed" value="true" />
+      <created>1701597337952</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701597337952</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

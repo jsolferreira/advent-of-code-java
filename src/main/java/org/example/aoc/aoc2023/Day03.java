@@ -30,7 +30,6 @@ class Day03 extends AoC2023Day<char[][]> {
         for (int i = 0; i < input.length; i++) {
 
             final char[] row = input[i];
-            boolean readingNumber;
             boolean isAdjacent = false;
             StringBuilder numberDigits = new StringBuilder();
 
@@ -39,22 +38,20 @@ class Day03 extends AoC2023Day<char[][]> {
 
                 if (Character.isDigit(cell)) {
 
-                    readingNumber = true;
                     numberDigits.append(cell);
+
+                    if (!isAdjacent) {
+
+                        isAdjacent = checkAdjacency(input, i, j);
+                    }
                 } else {
 
                     if (isAdjacent) {
                         sum += Integer.parseInt(numberDigits.toString());
                     }
 
-                    readingNumber = false;
                     isAdjacent = false;
                     numberDigits = new StringBuilder();
-                }
-
-                if (readingNumber && !isAdjacent) {
-
-                    isAdjacent = checkAdjacency(input, i, j);
                 }
             }
 
@@ -100,7 +97,6 @@ class Day03 extends AoC2023Day<char[][]> {
         for (int i = 0; i < input.length; i++) {
 
             final char[] row = input[i];
-            boolean readingNumber;
             StringBuilder numberDigits = new StringBuilder();
             Set<Position> positions = new HashSet<>();
 
@@ -109,8 +105,8 @@ class Day03 extends AoC2023Day<char[][]> {
 
                 if (Character.isDigit(cell)) {
 
-                    readingNumber = true;
                     numberDigits.append(cell);
+                    positions.addAll(getAdjacentGears(input, i, j));
                 } else {
 
                     if (!numberDigits.isEmpty()) {
@@ -122,14 +118,8 @@ class Day03 extends AoC2023Day<char[][]> {
                         }
                     }
 
-                    readingNumber = false;
                     numberDigits = new StringBuilder();
                     positions = new HashSet<>();
-                }
-
-                if (readingNumber) {
-
-                    positions.addAll(getAdjacentGears(input, i, j));
                 }
             }
 
@@ -145,7 +135,7 @@ class Day03 extends AoC2023Day<char[][]> {
 
         return gears.values().stream()
                 .filter(partNumbers -> partNumbers.size() == 2)
-                .map(partNumbers -> partNumbers.stream().reduce(1, (acc, val) -> acc = acc * val))
+                .map(partNumbers -> partNumbers.stream().reduce(1, (acc, val) -> acc * val))
                 .reduce(0, Integer::sum);
     }
 
