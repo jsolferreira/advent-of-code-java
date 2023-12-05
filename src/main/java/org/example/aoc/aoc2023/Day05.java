@@ -3,8 +3,8 @@ package org.example.aoc.aoc2023;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 class Day05 extends AoC2023Day<Day05.Almanac> {
 
@@ -108,56 +108,50 @@ class Day05 extends AoC2023Day<Day05.Almanac> {
 
     private List<Range> checkIntersection(List<Range> ranges, List<MapLine> mapLines) {
 
-        ArrayList<Range> fRanges = new ArrayList<>();
+        final ArrayList<Range> rangesForNextMap = new ArrayList<>();
 
         for (Range r : ranges) {
 
-            List<Range> remainingRanges = List.of(r);
-            ArrayList<Range> ffRanges = new ArrayList<>();
+            final HashSet<Range> remainderRanges = new HashSet<>();
+            remainderRanges.add(r);
 
             for (MapLine mapLine : mapLines) {
 
-                for (Range range : remainingRanges) {
+                for (Range range : new HashSet<>(remainderRanges)) {
 
                     if (range.min >= mapLine.source && range.max < mapLine.source + mapLine.range) {
-                        fRanges.add(new Range(mapLine.destination + (range.min - mapLine.source),
-                                              mapLine.destination + (range.max - mapLine.source)));
-                        ffRanges = remainingRanges.stream().filter(x -> x != range).collect(Collectors.toCollection(ArrayList::new));
+                        rangesForNextMap.add(new Range(mapLine.destination + (range.min - mapLine.source),
+                                                       mapLine.destination + (range.max - mapLine.source)));
+
+                        remainderRanges.remove(range);
                         break;
                     } else if (range.min >= mapLine.source && range.min < mapLine.source + mapLine.range) {
-                        fRanges.add(new Range(mapLine.destination + (range.min - mapLine.source),
-                                              mapLine.destination + mapLine.range - 1));
+                        rangesForNextMap.add(new Range(mapLine.destination + (range.min - mapLine.source),
+                                                       mapLine.destination + mapLine.range - 1));
 
-                        ffRanges = remainingRanges.stream().filter(x -> x != range).collect(Collectors.toCollection(ArrayList::new));
-                        ffRanges.add(new Range(mapLine.source + mapLine.range, range.max));
+                        remainderRanges.remove(range);
+                        remainderRanges.add(new Range(mapLine.source + mapLine.range, range.max));
                     } else if (range.max >= mapLine.source && range.max < mapLine.source + mapLine.range) {
-                        fRanges.add(new Range(mapLine.destination,
-                                              mapLine.destination + (range.max - mapLine.source)));
+                        rangesForNextMap.add(new Range(mapLine.destination,
+                                                       mapLine.destination + (range.max - mapLine.source)));
 
-                        ffRanges = remainingRanges.stream().filter(x -> x != range).collect(Collectors.toCollection(ArrayList::new));
-                        ffRanges.add(new Range(range.min, mapLine.source - 1));
+                        remainderRanges.remove(range);
+                        remainderRanges.add(new Range(range.min, mapLine.source - 1));
                     } else if (range.min < mapLine.source && range.max > mapLine.source + mapLine.range) {
-                        fRanges.add(new Range(mapLine.destination,
-                                              mapLine.destination + mapLine.range - 1));
+                        rangesForNextMap.add(new Range(mapLine.destination,
+                                                       mapLine.destination + mapLine.range - 1));
 
-                        ffRanges = remainingRanges.stream().filter(x -> x != range).collect(Collectors.toCollection(ArrayList::new));
-                        ffRanges.add(new Range(range.min, mapLine.source - 1));
-                        ffRanges.add(new Range(mapLine.source + mapLine.range, range.max));
+                        remainderRanges.remove(range);
+                        remainderRanges.add(new Range(range.min, mapLine.source - 1));
+                        remainderRanges.add(new Range(mapLine.source + mapLine.range, range.max));
                     }
                 }
-                if (!ffRanges.isEmpty()) {
-                    remainingRanges = (List<Range>) ffRanges.clone();
-                }
             }
 
-            if (!ffRanges.isEmpty()) {
-                fRanges.addAll(ffRanges);
-            } else if (fRanges.isEmpty()) {
-                fRanges.addAll(remainingRanges);
-            }
+            rangesForNextMap.addAll(remainderRanges);
         }
 
-        return fRanges;
+        return rangesForNextMap;
     }
 
     @Override
