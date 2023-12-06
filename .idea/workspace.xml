@@ -13,20 +13,22 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/Day03.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day19.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day20.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day06.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2015/day05.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day01.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day02.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day03.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day19.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day20.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2023/day06.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/AoC2015.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/AoC2015.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2021/Day03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2021/Day03.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/AoC2022.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/AoC2022.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/AoC2023.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/AoC2023.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day05.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day17.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day17.txt" afterDir="false" />
     </list>
@@ -137,7 +139,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="advent-of-code-java.main" />
-      <option name="PROGRAM_PARAMETERS" value="-y 2023 -D 05 -t" />
+      <option name="PROGRAM_PARAMETERS" value="-y 2023 -D 06 -t" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.base.*" />
@@ -198,14 +200,6 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="aws.lambda" factoryName="Remote">
-      <option name="credentialProviderId" />
-      <option name="regionId" />
-      <option name="functionName" />
-      <option name="input" />
-      <option name="inputIsFile" value="false" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.advent-of-code-java [run]" />
@@ -259,7 +253,9 @@
       <workItem from="1701551389685" duration="3167000" />
       <workItem from="1701593130108" duration="8806000" />
       <workItem from="1701678331938" duration="4804000" />
-      <workItem from="1701764296430" duration="19026000" />
+      <workItem from="1701764296430" duration="21785000" />
+      <workItem from="1701851873908" duration="3190000" />
+      <workItem from="1701858854347" duration="667000" />
     </task>
     <task id="LOCAL-00001" summary="AOC2022 day6">
       <created>1670316894847</created>
@@ -422,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701796034513</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="AOC2023 day05">
+      <option name="closed" value="true" />
+      <created>1701798209123</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701798209123</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +547,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day05.java</url>
-          <line>121</line>
+          <line>125</line>
           <option name="timeStamp" value="257" />
         </line-breakpoint>
       </breakpoints>
