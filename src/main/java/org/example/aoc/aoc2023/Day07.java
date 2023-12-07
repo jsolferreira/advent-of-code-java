@@ -215,7 +215,7 @@ class Day07 extends AoC2023Day<List<Day07.Hand>> {
             return HandType.TWO_PAIR;
         }
 
-        if (nCards1 == 2 || nCards1 + jokerCount == 2) {
+        if (nCards1 + jokerCount == 2) {
             return HandType.ONE_PAIR;
         }
 
