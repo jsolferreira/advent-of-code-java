@@ -17,7 +17,7 @@ class Day05 extends AoC2023Day<Day05.Almanac> {
     @Override
     protected Almanac parseInput(String strInput) {
 
-        final String[] split = strInput.split("\n\n");
+        final String[] split = strInput.split(System.lineSeparator() + System.lineSeparator());
 
         List<Long> seeds = parseSeeds(split[0]);
         List<Range> seedRanges = parseSeedRanges(seeds);
