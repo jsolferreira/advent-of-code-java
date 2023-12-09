@@ -33,22 +33,21 @@ class Day09 extends AoC2023Day<List<List<Integer>>> {
     private Integer resolve(List<List<Integer>> input, BiFunction<List<Integer>, Integer, Integer> f) {
 
         return input.stream()
+                .map(this::findExtrapolations)
                 .reduce(0,
-                        (acc, val) -> {
-                            final List<List<Integer>> extrapolations = findExtrapolations(val);
-                            return acc + findNextValue(extrapolations, f);
-                        }, Integer::sum);
+                        (acc, val) -> acc + findNextValue(val, f),
+                        Integer::sum);
     }
 
     private List<List<Integer>> findExtrapolations(List<Integer> valueHistory) {
 
         final List<List<Integer>> extrapolations = new ArrayList<>(List.of(valueHistory));
 
-        List<Integer> nextExtrapolation = new ArrayList<>();
         List<Integer> currentExtrapolation = valueHistory;
         boolean keepLooping = true;
 
         while (keepLooping) {
+            final List<Integer> nextExtrapolation = new ArrayList<>();
 
             boolean allZero = true;
 
@@ -60,7 +59,6 @@ class Day09 extends AoC2023Day<List<List<Integer>>> {
 
             extrapolations.add(nextExtrapolation);
             currentExtrapolation = nextExtrapolation;
-            nextExtrapolation = new ArrayList<>();
             keepLooping = !allZero;
         }
 
