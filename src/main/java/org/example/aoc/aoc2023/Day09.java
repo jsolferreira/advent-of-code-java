@@ -71,7 +71,10 @@ class Day09 extends AoC2023Day<List<List<Integer>>> {
 
         return IntStream.rangeClosed(0, j)
                 .map(i -> j - i)
-                .reduce(0, (acc, val) -> f.apply(extrapolations.get(val), acc));
+                .mapToObj(extrapolations::get)
+                .reduce(0,
+                        (acc, val) -> f.apply(val, acc),
+                        Integer::sum);
     }
 
     @Override
