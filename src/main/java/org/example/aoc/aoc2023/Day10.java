@@ -8,36 +8,31 @@ import java.util.Set;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-class Day10 extends AoC2023Day<Day10.Cell[][]> {
-
-    protected record Cell(char pipe, int distance) {
-    }
+class Day10 extends AoC2023Day<char[][]> {
 
     private record Position(int i, int j) {
     }
 
     @Override
-    protected Cell[][] parseInput(String strInput) {
+    protected char[][] parseInput(String strInput) {
 
         return strInput.lines()
-                .map(line -> line.chars()
-                        .mapToObj(c -> new Cell((char) c, -1))
-                        .toArray(Cell[]::new))
-                .toArray(Cell[][]::new);
+                .map(String::toCharArray)
+                .toArray(char[][]::new);
     }
 
     @Override
-    protected Integer partOne(Cell[][] input) {
+    protected Integer partOne(char[][] input) {
 
-        final List<Position> loop = getLoop(input);
+        final List<Position> loop = getLoop(input, false);
 
         return loop.size() / 2;
     }
 
     @Override
-    protected Integer partTwo(Cell[][] input) {
+    protected Integer partTwo(char[][] input) {
 
-        final List<Position> loop = getLoop(input);
+        final List<Position> loop = getLoop(input, true);
 
         final List<Position> reorderedLoop = getLoopStartingAtTopMostPosition(input, loop);
 
@@ -50,9 +45,7 @@ class Day10 extends AoC2023Day<Day10.Cell[][]> {
 
         for (Position position : reorderedLoop) {
 
-            final Cell cell = input[position.i][position.j];
-
-            char pipe = cell.pipe;
+            char pipe = input[position.i][position.j];
 
             if (visit) {
                 if (inSequence.get(nSequence) != pipe) {
@@ -104,23 +97,28 @@ class Day10 extends AoC2023Day<Day10.Cell[][]> {
         return enclosed.size();
     }
 
-    private List<Position> getLoop(Cell[][] input) {
+    private List<Position> getLoop(char[][] input, boolean replaceStart) {
 
         final Position startPosition = getStartPosition(input);
 
         final List<Position> loop = new ArrayList<>();
         loop.add(startPosition);
 
-        Position currentPosition = checkAdjacency(input, startPosition.i, startPosition.j);
+        final List<Position> connectedPositions = getConnectedPositions(input, startPosition.i, startPosition.j);
+
+        if (replaceStart) {
+            replaceStartWithPipe(input, startPosition, connectedPositions);
+        }
+
+        Position currentPosition = connectedPositions.getFirst();
         Position previousPosition = startPosition;
 
         while (currentPosition.i != startPosition.i || currentPosition.j != startPosition.j) {
 
-            final Cell cell = input[currentPosition.i][currentPosition.j];
-
             loop.add(new Position(currentPosition.i, currentPosition.j));
 
-            final char pipe = cell.pipe;
+            final char pipe = input[currentPosition.i][currentPosition.j];
+
             if (pipe == '|' || pipe == '-') {
                 Position aux = previousPosition;
                 previousPosition = currentPosition;
@@ -152,33 +150,66 @@ class Day10 extends AoC2023Day<Day10.Cell[][]> {
         return loop;
     }
 
-    private Position checkAdjacency(Cell[][] input, int i, int j) {
+    private List<Position> getConnectedPositions(char[][] input, int i, int j) {
 
-        return Stream.of(
-                        getPosition(input, i, j + 1, Set.of('-', '7', 'J')),
-                        getPosition(input, i + 1, j, Set.of('|', 'L', 'J')),
-                        getPosition(input, i, j - 1, Set.of('-', 'L', 'F')),
-                        getPosition(input, i - 1, j, Set.of('|', 'F', '7')))
+        return Stream.of(getPosition(input, i, j + 1, Set.of('-', '7', 'J')),
+                         getPosition(input, i + 1, j, Set.of('|', 'L', 'J')),
+                         getPosition(input, i, j - 1, Set.of('-', 'L', 'F')),
+                         getPosition(input, i - 1, j, Set.of('|', 'F', '7')))
                 .filter(Objects::nonNull)
-                .findFirst()
-                .orElseThrow();
+                .toList();
     }
 
-    private Position getPosition(Cell[][] input, int i, int j, Set<Character> possibleDirections) {
+    private Position getPosition(char[][] input, int i, int j, Set<Character> possibleDirections) {
 
         if (i < 0 || i >= input.length || j < 0 || j >= input[i].length) {
 
             return null;
         }
 
-        if (possibleDirections.contains(input[i][j].pipe)) {
+        if (possibleDirections.contains(input[i][j])) {
             return new Position(i, j);
         } else {
             return null;
         }
     }
 
-    private List<Position> getLoopStartingAtTopMostPosition(Cell[][] input, List<Position> loop) {
+    private void replaceStartWithPipe(char[][] input, Position startingPosition, List<Position> connectedPositions) {
+
+        final Position firstConnectedPosition = connectedPositions.getFirst();
+        final Position lastConnectedPosition = connectedPositions.getLast();
+
+        final int firstConnectedVectorI = firstConnectedPosition.i - startingPosition.i;
+        final int firstConnectedVectorJ = firstConnectedPosition.j - startingPosition.j;
+        final int lastConnectedVectorI = lastConnectedPosition.i - startingPosition.i;
+        final int lastConnectedVectorJ = lastConnectedPosition.j - startingPosition.j;
+
+        if (firstConnectedVectorI == lastConnectedVectorI) {
+
+            input[startingPosition.i][startingPosition.j] = '|';
+        } else if (firstConnectedVectorJ == lastConnectedVectorJ) {
+
+            input[startingPosition.i][startingPosition.j] = '-';
+        } else if (firstConnectedVectorI > lastConnectedVectorI) {
+
+            if (firstConnectedVectorJ > lastConnectedVectorJ) {
+
+                input[startingPosition.i][startingPosition.j] = 'L';
+            } else {
+
+                input[startingPosition.i][startingPosition.j] = 'J';
+            }
+
+        } else if (firstConnectedVectorJ > lastConnectedVectorJ) {
+
+            input[startingPosition.i][startingPosition.j] = 'F';
+        } else {
+
+            input[startingPosition.i][startingPosition.j] = '7';
+        }
+    }
+
+    private List<Position> getLoopStartingAtTopMostPosition(char[][] input, List<Position> loop) {
 
         final Position firstPosition = loop
                 .stream()
@@ -188,11 +219,11 @@ class Day10 extends AoC2023Day<Day10.Cell[][]> {
         return Stream.concat(
                         loop.subList(loop.indexOf(firstPosition), loop.size()).stream(),
                         loop.subList(0, loop.indexOf(firstPosition)).stream())
-                .filter(position -> input[position.i][position.j].pipe != '|' && input[position.i][position.j].pipe != '-')
+                .filter(position -> input[position.i][position.j] != '|' && input[position.i][position.j] != '-')
                 .toList();
     }
 
-    private void visitCellRecursively(Cell[][] input,
+    private void visitCellRecursively(char[][] input,
                                       Position currentPosition,
                                       List<Position> loop,
                                       List<Position> enclosedPositions,
@@ -219,7 +250,7 @@ class Day10 extends AoC2023Day<Day10.Cell[][]> {
         }
     }
 
-    private boolean addEnclosed(Cell[][] input,
+    private boolean addEnclosed(char[][] input,
                                 Position position,
                                 List<Position> loop,
                                 List<Position> enclosedPositions) {
@@ -237,13 +268,13 @@ class Day10 extends AoC2023Day<Day10.Cell[][]> {
         return true;
     }
 
-    private Position getStartPosition(Cell[][] input) {
+    private Position getStartPosition(char[][] input) {
 
         return IntStream.range(0, input.length)
                 .boxed()
                 .flatMap(i -> IntStream.range(0, input[i].length)
                         .boxed()
-                        .filter(j -> input[i][j].pipe == 'S')
+                        .filter(j -> input[i][j] == 'S')
                         .map(j -> new Position(i, j)))
                 .findFirst()
                 .orElseThrow();
