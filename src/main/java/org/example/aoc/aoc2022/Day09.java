@@ -68,7 +68,7 @@ class Day09 extends AoC2022Day<List<Day09.Motion>> {
     private long moveAndCountTailVisitedPositions(List<Position> rope, List<Motion> motions) {
 
         final Set<Position> visitedPositions = new HashSet<>();
-        visitedPositions.add(rope.get(rope.size() - 1));
+        visitedPositions.add(rope.getLast());
 
         for (Motion motion : motions) {
             for (int i = 0; i < motion.steps; i++) {
@@ -83,7 +83,7 @@ class Day09 extends AoC2022Day<List<Day09.Motion>> {
 
     final void moveHead(List<Position> rope, Direction direction) {
 
-        final Position headPosition = rope.get(0);
+        final Position headPosition = rope.getFirst();
 
         rope.set(0, move(headPosition, direction));
     }

@@ -103,14 +103,14 @@ class Day16 extends AoC2020Day<Day16.Note> {
 
                             if (fields.get(j).size() > 1) {
 
-                                fields.set(j, fields.get(j).stream().filter(p -> !p.equals(field.get(0))).toList());
+                                fields.set(j, fields.get(j).stream().filter(p -> !p.equals(field.getFirst())).toList());
                             }
                         }
                     });
         }
 
         return IntStream.range(0, fields.size())
-                .filter(i -> fields.get(i).get(0).startsWith("departure"))
+                .filter(i -> fields.get(i).getFirst().startsWith("departure"))
                 .mapToLong(input.ticket.values::get)
                 .reduce(1L,
                         (acc, val) -> acc * val);
@@ -134,7 +134,7 @@ class Day16 extends AoC2020Day<Day16.Note> {
 
     private List<List<String>> transformIntoListOfPossibleFields(List<Ticket> tickets, Note input) {
 
-        final int numberOfFieldsInEachTicket = tickets.get(0).values.size();
+        final int numberOfFieldsInEachTicket = tickets.getFirst().values.size();
 
         return IntStream.range(0, numberOfFieldsInEachTicket)
                 .<List<String>>mapToObj(j -> tickets.stream()
@@ -159,7 +159,7 @@ class Day16 extends AoC2020Day<Day16.Note> {
                                               },
                                               (a, b) -> new ArrayList<>())
                 )
-                .collect(Collectors.toList());
+                .toList();
     }
 
     private boolean isNotSolved(List<List<String>> grid) {

@@ -22,7 +22,7 @@ class Day03 extends AoC2021Day<List<List<String>>> {
     @Override
     protected Long partOne(List<List<String>> input) {
 
-        final int n = input.get(0).size();
+        final int n = input.getFirst().size();
 
         final List<Map<String, Long>> bitCounting = IntStream.range(0, n)
                 .mapToObj(i -> countBitsInPosition(input, i))
@@ -48,7 +48,7 @@ class Day03 extends AoC2021Day<List<List<String>>> {
     @Override
     protected Long partTwo(List<List<String>> input) {
 
-        final int n = input.get(0).size();
+        final int n = input.getFirst().size();
 
         final String oxygenGeneratorRating = IntStream.range(0, n)
                 .boxed()
@@ -63,7 +63,7 @@ class Day03 extends AoC2021Day<List<List<String>>> {
                                     .flatMap(bit -> acc.stream().filter(bits -> bits.get(val).equals(bit)))
                                     .toList();
                         },
-                        (a, b) -> a)
+                        (a, _) -> a)
                 .stream()
                 .flatMap(Collection::stream)
                 .collect(Collectors.joining());
@@ -81,7 +81,7 @@ class Day03 extends AoC2021Day<List<List<String>>> {
                                     .flatMap(bit -> acc.stream().filter(bits -> bits.get(val).equals(bit)))
                                     .toList();
                         },
-                        (a, b) -> a)
+                        (a, _) -> a)
                 .stream()
                 .flatMap(Collection::stream)
                 .collect(Collectors.joining());

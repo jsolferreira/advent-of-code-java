@@ -39,7 +39,7 @@ class Day03 extends AoC2022Day<List<String>> {
 
     private Character findCommonItemType(List<String> items) {
 
-        final String firstItem = items.get(0);
+        final String firstItem = items.getFirst();
         final List<String> remainingItems = items.stream().skip(1).toList();
 
         return firstItem.chars()

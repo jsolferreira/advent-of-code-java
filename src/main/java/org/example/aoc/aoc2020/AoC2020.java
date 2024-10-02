@@ -37,7 +37,8 @@ public class AoC2020 extends AoCYear {
                 Day16.class,
                 Day17.class,
                 Day18.class,
-                Day19.class
+                Day19.class,
+                Day20.class
         );
     }
 

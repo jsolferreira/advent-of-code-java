@@ -175,8 +175,7 @@ class Day11 extends AoC2022Day<List<Day11.Monkey>> {
         return inspectedItems.values().stream()
                 .sorted(Comparator.reverseOrder())
                 .limit(2)
-                .reduce((a, b) -> a * b)
-                .orElseThrow();
+                .reduce(1L, (a, b) -> a * b);
     }
 
     @Override
@@ -186,7 +185,6 @@ class Day11 extends AoC2022Day<List<Day11.Monkey>> {
     }
 
     @Override
-
     protected String getDay() {
 
         return "day11";

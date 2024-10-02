@@ -99,7 +99,7 @@ class Day05 extends AoC2022Day<Day05.Input> {
     private void move(Stack<String> from, Stack<String> to, int n) {
 
         IntStream.iterate(n, i -> i > 0, i -> i - 1)
-                .forEach(i -> to.add(from.pop()));
+                .forEach(_ -> to.add(from.pop()));
     }
 
     private String joinTopOfStacks(List<Stack<String>> stacks) {

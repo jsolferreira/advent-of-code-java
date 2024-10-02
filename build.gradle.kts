@@ -7,7 +7,9 @@ group = "org.example"
 version = "1.0-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(23)
+    }
 }
 
 repositories {
@@ -19,5 +21,5 @@ application {
 }
 
 dependencies {
-    implementation("commons-cli:commons-cli:1.6.0")
+    implementation(libs.commons.cli)
 }

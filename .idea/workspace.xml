@@ -4,33 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4db848e-f937-4896-ab68-60d33e31972a" name="Changes" comment="AOC2023 day05">
+    <list default="true" id="d4db848e-f937-4896-ab68-60d33e31972a" name="Changes" comment="AOC2023 day08">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/Day05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/AoC2018.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/AoC2018Day.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/Day01.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/Day02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2018/Day03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day19.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day20.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day06.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/Day07.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/Day08.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/Day09.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/Day10.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2020/Day20.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day13.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2015/day05.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day01.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day02.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2018/day03.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day19.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day20.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2023/day06.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2015/day07.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2015/day08.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2015/day09.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2015/day10.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2020/day20.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2023/day13.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/AoC2015.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2015/AoC2015.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2020/AoC2020.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2020/AoC2020.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2020/Day16.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2020/Day16.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2021/Day03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2021/Day03.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/AoC2022.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/AoC2022.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day03.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day05.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day05.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day09.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day09.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day11.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day11.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day15.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day15.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/AoC2023.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/AoC2023.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day01.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day17.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day17.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day12.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day12.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day15.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2022/day15.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/input/aoc2023/day12.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/input/aoc2023/day12.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +61,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="advent-of-code-java" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -76,9 +86,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jsolferreira&quot;
+  }
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
   </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jsolferreira/advent-of-code-java.git&quot;,
+    &quot;accountId&quot;: &quot;69a2e982-8714-492d-bc8c-52054ae04cf2&quot;
+  }
+}</component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="jvqy9g4x" />
   </component>
@@ -96,17 +118,26 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Gradle.advent-of-code-java [:Class.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.advent-of-code-java [:Class2.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.advent-of-code-java [:Main.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.advent-of-code-java [run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jorgeferreira/advent-of-code-java/src/main/resources/input/aoc2023&quot;,
+    &quot;android.gradle.sync.needed&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jorge/work/advent-of-code-java/src/main/java/org/example&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.25977013&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -118,28 +149,58 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\src\main\java\org\example" />
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\src\main\resources\input\aoc2023" />
       <recent name="$PROJECT_DIR$/src/main/resources/input/aoc2023" />
       <recent name="$PROJECT_DIR$/src/main/resources/input/aoc2018" />
       <recent name="$PROJECT_DIR$/src/main/resources/input" />
-      <recent name="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023" />
-      <recent name="$PROJECT_DIR$/src/main/resources/input/aoc2022" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\gradle" />
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\.gradle" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="org.example.aoc2016" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example" />
       <recent name="org.example.aoc.aoc2023" />
       <recent name="org.example.aoc.aoc2018" />
       <recent name="org.example.aoc2.aoc2023" />
       <recent name="org.example.aoc.aoc2022" />
-      <recent name="org.example.aoc.aoc2015" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.advent-of-code-java [run]">
+    <configuration name="Class" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Class" />
+      <module name="advent-of-code-java.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Class2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Class2" />
+      <module name="advent-of-code-java.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="advent-of-code-java.main" />
-      <option name="PROGRAM_PARAMETERS" value="-y 2023 -D 06 -t" />
+      <option name="PROGRAM_PARAMETERS" value="-y 2023 -D 13 -t" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.example.base.*" />
@@ -189,7 +250,7 @@
         <option name="taskNames">
           <list>
             <option value="run" />
-            <option value="--args=&quot;-year=2022 -t -day=20&quot;" />
+            <option value="--args=&quot;-year=2022 -t -day=1&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -201,6 +262,8 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Application.Class2" />
+      <item itemvalue="Application.Class" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.advent-of-code-java [run]" />
       <item itemvalue="Gradle.advent-of-code-java [run] (1)" />
@@ -209,6 +272,8 @@
       <list>
         <item itemvalue="Gradle.advent-of-code-java [run] (1)" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Class" />
+        <item itemvalue="Application.Class2" />
       </list>
     </recent_temporary>
   </component>
@@ -426,7 +491,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701798209123</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="AOC2023 day07">
+      <option name="closed" value="true" />
+      <created>1701994162641</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701994162641</updated>
+    </task>
+    <task id="LOCAL-00025" summary="AOC2023 day08">
+      <option name="closed" value="true" />
+      <created>1702037776485</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1702037776485</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +551,9 @@
     <MESSAGE value="AOC2023 day03" />
     <MESSAGE value="AOC2023 day04" />
     <MESSAGE value="AOC2023 day05" />
-    <option name="LAST_COMMIT_MESSAGE" value="AOC2023 day05" />
+    <MESSAGE value="AOC2023 day07" />
+    <MESSAGE value="AOC2023 day08" />
+    <option name="LAST_COMMIT_MESSAGE" value="AOC2023 day08" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -497,7 +580,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day15.java</url>
-          <line>187</line>
+          <line>189</line>
           <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -526,11 +609,6 @@
           <option name="timeStamp" value="131" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2021/Day03.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day20.java</url>
           <line>47</line>
           <option name="timeStamp" value="152" />
@@ -550,10 +628,47 @@
           <line>125</line>
           <option name="timeStamp" value="257" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day07.java</url>
+          <line>133</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day08.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="358" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day08.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="374" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day13.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="404" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day13.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="406" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Class2.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="420" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Class2.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="423" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Class2.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="424" />
+        </line-breakpoint>
       </breakpoints>
-      <default-breakpoints>
-        <breakpoint enabled="true" type="java-exception" />
-      </default-breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
@@ -566,11 +681,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/advent_of_code_java$Main.ic" NAME="Main Coverage Results" MODIFIED="1665830431874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>org.example.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/advent_of_code_java$Main___Measure_time.ic" NAME="Main - Measure time Coverage Results" MODIFIED="1669923118844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.example.base.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/advent_of_code_java$_Gradle_with_args.ic" NAME=" Gradle with args Coverage Results" MODIFIED="1670661499862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/advent_of_code_java$Main.ic" NAME="Main Coverage Results" MODIFIED="1665830431874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.example.*</FILTER>
     </SUITE>
   </component>
 </project>

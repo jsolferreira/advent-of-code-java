@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -76,7 +77,35 @@ class Day15 extends AoC2022Day<Map<Day15.Position, Day15.Position>> {
     protected Long partTwo(Map<Position, Position> input) {
 
         final int min = 0;
-        final int max = 4000000 - 1;
+        final int max = 20 - 1;
+
+        final Map<Range, Range[]> r = new HashMap<>();
+        final Range[] rr = new Range[1];
+        rr[0] = new Range(min, max);
+        r.put(new Range(min, max), rr);
+
+        for (Position beacon : input.values()) {
+            if (beacon.x > min && beacon.x < max && beacon.y > min && beacon.y < max) {
+
+                Optional<Range> first = r.keySet().stream().filter(x -> x.start <= beacon.y && x.end >= beacon.y).findFirst();
+
+                if (first.isPresent()) {
+
+                    Range[] newRange = split(List.of(first.get()).toArray(Range[]::new), new Range(beacon.y, beacon.y));
+
+                    Range[] ranges = r.get(first.get());
+                    r.remove(first.get());
+
+                    for (Range range : newRange) {
+                        r.put(range, ranges);
+                    }
+
+                    newRange = split(ranges, new Range(beacon.x, beacon.x));
+
+                    r.put(new Range(beacon.y, beacon.y), newRange);
+                }
+            }
+        }
 
         final Range[][] ranges = new Range[max + 1][1];
 
@@ -107,43 +136,7 @@ class Day15 extends AoC2022Day<Map<Day15.Position, Day15.Position>> {
             int x = minYWithoutBeaconInRange - minYWithoutBeacon;
             for (int y = minYWithoutBeaconInRange; y <= maxYWithoutBeaconInRange; y++) {
 
-                final Range p = new Range(sensor.x - x, sensor.x + x);
-                final List<Range> newRanges = new ArrayList<>();
-
-                for (int j = 0; j < ranges[y].length; j++) {
-
-                    Range range = ranges[y][j];
-
-                    if (p.end < range.start || p.start > range.end) {
-
-                        newRanges.add(range);
-                        continue;
-                    }
-
-                    if (p.start >= range.start && p.end <= range.end) {
-
-                        if (p.start - 1 >= range.start) {
-
-                            newRanges.add(new Range(range.start, p.start - 1));
-                        }
-
-                        if (p.end + 1 <= range.end) {
-
-                            newRanges.add(new Range(p.end + 1, range.end));
-                        }
-                    } else if (p.start <= range.start) {
-
-                        if (p.end + 1 <= range.end) {
-
-                            newRanges.add(new Range(p.end + 1, range.end));
-                        }
-                    } else if (p.end >= range.end && p.start - 1 >= range.start) {
-
-                        newRanges.add(new Range(range.start, p.start - 1));
-                    }
-                }
-
-                ranges[y] = newRanges.toArray(Range[]::new);
+                ranges[y] = split(ranges[y], new Range(sensor.x - x, sensor.x + x));
 
                 if (y >= sensor.y) {
                     x--;
@@ -160,6 +153,44 @@ class Day15 extends AoC2022Day<Map<Day15.Position, Day15.Position>> {
                         .stream().mapToLong(x -> ranges[y][x].start * 4000000L + y))
                 .findFirst()
                 .orElseThrow();
+    }
+
+    private Range[] split(Range[] ranges, Range p) {
+
+        final List<Range> newRanges = new ArrayList<>();
+
+        for (Range range : ranges) {
+
+            if (p.end < range.start || p.start > range.end) {
+
+                newRanges.add(range);
+                continue;
+            }
+
+            if (p.start >= range.start && p.end <= range.end) {
+
+                if (p.start - 1 >= range.start) {
+
+                    newRanges.add(new Range(range.start, p.start - 1));
+                }
+
+                if (p.end + 1 <= range.end) {
+
+                    newRanges.add(new Range(p.end + 1, range.end));
+                }
+            } else if (p.start <= range.start) {
+
+                if (p.end + 1 <= range.end) {
+
+                    newRanges.add(new Range(p.end + 1, range.end));
+                }
+            } else if (p.end >= range.end && p.start - 1 >= range.start) {
+
+                newRanges.add(new Range(range.start, p.start - 1));
+            }
+        }
+
+        return newRanges.toArray(Range[]::new);
     }
 
     @Override
