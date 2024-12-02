@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d4db848e-f937-4896-ab68-60d33e31972a" name="Changes" comment="Removed inputs" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+      <option value="module" />
+    </option>
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="advent-of-code-java" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Record" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jsolferreira&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1733129099" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jsolferreira/advent-of-code-java.git&quot;,
+    &quot;accountId&quot;: &quot;69a2e982-8714-492d-bc8c-52054ae04cf2&quot;
+  }
+}</component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="jvqy9g4x" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2FWb3I1SZ3qGqjfiPPDRNJw51gI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build advent-of-code-java.executor": "Run",
+    "Gradle.advent-of-code-java [:Class.main()].executor": "Debug",
+    "Gradle.advent-of-code-java [:Class2.main()].executor": "Debug",
+    "Gradle.advent-of-code-java [:Main.main()].executor": "Debug",
+    "Gradle.advent-of-code-java [run].executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "android.gradle.sync.needed": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/jorgeferreira/advent-of-code-java/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.25977013",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT",
+      "JSON"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/input/aoc2024" />
+      <recent name="$PROJECT_DIR$/src/main/resources/input" />
+      <recent name="$PROJECT_DIR$/src/main/java/org/example/aoc" />
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\src\main\java\org\example" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\gradle" />
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\.gradle" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.aoc2016" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.aoc.aoc2024" />
+      <recent name="org.example" />
+      <recent name="org.example.aoc.aoc2023" />
+      <recent name="org.example.aoc.aoc2018" />
+      <recent name="org.example.aoc2.aoc2023" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.advent-of-code-java [run]">
+    <configuration name="Class" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Class" />
+      <module name="advent-of-code-java.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Class2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Class2" />
+      <module name="advent-of-code-java.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="advent-of-code-java.main" />
+      <option name="PROGRAM_PARAMETERS" value="-y 2023 -D 13 -t" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="software.aws.toolkits.jetbrains.core.execution.JavaAwsConnectionExtension">
+        <option name="credential" />
+        <option name="region" />
+        <option name="useCurrentConnection" value="false" />
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="advent-of-code-java [run] (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="advent-of-code-java [run]" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+            <option value="--args=&quot;-year=2024 -t -day=2&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Class2" />
+      <item itemvalue="Application.Class" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.advent-of-code-java [run]" />
+      <item itemvalue="Gradle.advent-of-code-java [run] (1)" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.advent-of-code-java [run] (1)" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Class" />
+        <item itemvalue="Application.Class2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
+        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d4db848e-f937-4896-ab68-60d33e31972a" name="Changes" comment="" />
+      <created>1664610588310</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664610588310</updated>
+      <workItem from="1670398183198" duration="8631000" />
+      <workItem from="1670407490493" duration="8367000" />
+      <workItem from="1670490519805" duration="16786000" />
+      <workItem from="1670618102831" duration="384000" />
+      <workItem from="1670835857092" duration="6913000" />
+      <workItem from="1670846231695" duration="6496000" />
+      <workItem from="1670860409364" duration="4246000" />
+      <workItem from="1670920140484" duration="13408000" />
+      <workItem from="1670940690660" duration="1260000" />
+      <workItem from="1670953568167" duration="1298000" />
+      <workItem from="1671007371933" duration="3831000" />
+      <workItem from="1671020337902" duration="5541000" />
+      <workItem from="1671097787007" duration="1514000" />
+      <workItem from="1671110335168" duration="21000" />
+      <workItem from="1671110858989" duration="4970000" />
+      <workItem from="1671181817288" duration="21759000" />
+      <workItem from="1671266107998" duration="4650000" />
+      <workItem from="1671352145331" duration="3894000" />
+      <workItem from="1671363555951" duration="11767000" />
+      <workItem from="1671440398594" duration="1453000" />
+      <workItem from="1671442291834" duration="5326000" />
+      <workItem from="1671461058685" duration="1145000" />
+      <workItem from="1671472085595" duration="2002000" />
+      <workItem from="1671526754717" duration="5075000" />
+      <workItem from="1671542879177" duration="6600000" />
+      <workItem from="1683198636830" duration="10000" />
+      <workItem from="1701369973972" duration="7455000" />
+      <workItem from="1701421636954" duration="7619000" />
+      <workItem from="1701431361654" duration="10632000" />
+      <workItem from="1701506402177" duration="3254000" />
+      <workItem from="1701551389685" duration="3167000" />
+      <workItem from="1701593130108" duration="8806000" />
+      <workItem from="1701678331938" duration="4804000" />
+      <workItem from="1701764296430" duration="21785000" />
+      <workItem from="1701851873908" duration="3190000" />
+      <workItem from="1701858854347" duration="667000" />
+      <workItem from="1733041717017" duration="8875000" />
+    </task>
+    <task id="LOCAL-00001" summary="AOC2022 day6">
+      <created>1670316894847</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670316894847</updated>
+    </task>
+    <task id="LOCAL-00002" summary="AOC2022 day6">
+      <created>1670317030377</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670317030377</updated>
+    </task>
+    <task id="LOCAL-00003" summary="AOC2022 day7 ugly">
+      <created>1670405381019</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670405381019</updated>
+    </task>
+    <task id="LOCAL-00004" summary="AOC2022 day7">
+      <created>1670409570007</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670409570007</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Upgrade gradle">
+      <created>1670410216654</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670410216654</updated>
+    </task>
+    <task id="LOCAL-00006" summary="AOC2022 day7">
+      <created>1670410691109</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670410691109</updated>
+    </task>
+    <task id="LOCAL-00007" summary="AOC2022 day7">
+      <created>1670410728932</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670410728932</updated>
+    </task>
+    <task id="LOCAL-00008" summary="AOC2022 day8">
+      <created>1670494621210</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1670494621210</updated>
+    </task>
+    <task id="LOCAL-00009" summary="AOC2022 day8">
+      <created>1670494788196</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670494788196</updated>
+    </task>
+    <task id="LOCAL-00010" summary="AOC2022 day9">
+      <created>1670584510109</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670584510109</updated>
+    </task>
+    <task id="LOCAL-00011" summary="AOC2022 day11 part1">
+      <created>1670868711835</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670868711835</updated>
+    </task>
+    <task id="LOCAL-00012" summary="AOC2022 day13">
+      <created>1670929714793</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670929714793</updated>
+    </task>
+    <task id="LOCAL-00013" summary="AOC2022 day13">
+      <created>1670931215494</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670931215494</updated>
+    </task>
+    <task id="LOCAL-00014" summary="AOC2022 day14">
+      <created>1671022646427</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1671022646427</updated>
+    </task>
+    <task id="LOCAL-00015" summary="AOC2022 day15">
+      <created>1671199057126</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671199057126</updated>
+    </task>
+    <task id="LOCAL-00016" summary="AOC2023 day01">
+      <option name="closed" value="true" />
+      <created>1701433441111</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701433441111</updated>
+    </task>
+    <task id="LOCAL-00017" summary="AOC2023 day01">
+      <option name="closed" value="true" />
+      <created>1701435383767</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1701435383767</updated>
+    </task>
+    <task id="LOCAL-00018" summary="AOC2023 day02">
+      <option name="closed" value="true" />
+      <created>1701508993027</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1701508993027</updated>
+    </task>
+    <task id="LOCAL-00019" summary="AOC2023 day02">
+      <option name="closed" value="true" />
+      <created>1701597337952</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1701597337952</updated>
+    </task>
+    <task id="LOCAL-00020" summary="AOC2023 day03">
+      <option name="closed" value="true" />
+      <created>1701597901044</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701597901044</updated>
+    </task>
+    <task id="LOCAL-00021" summary="AOC2023 day04">
+      <option name="closed" value="true" />
+      <created>1701681989587</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1701681989587</updated>
+    </task>
+    <task id="LOCAL-00022" summary="AOC2023 day05">
+      <option name="closed" value="true" />
+      <created>1701796034513</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1701796034513</updated>
+    </task>
+    <task id="LOCAL-00023" summary="AOC2023 day05">
+      <option name="closed" value="true" />
+      <created>1701798209123</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1701798209123</updated>
+    </task>
+    <task id="LOCAL-00024" summary="AOC2023 day07">
+      <option name="closed" value="true" />
+      <created>1701994162641</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1701994162641</updated>
+    </task>
+    <task id="LOCAL-00025" summary="AOC2023 day08">
+      <option name="closed" value="true" />
+      <created>1702037776485</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1702037776485</updated>
+    </task>
+    <task id="LOCAL-00026" summary="AOC2024 day01">
+      <option name="closed" value="true" />
+      <created>1733044970093</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1733044970093</updated>
+    </task>
+    <task id="LOCAL-00027" summary="AOC2024 day02">
+      <option name="closed" value="true" />
+      <created>1733128860729</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1733128860729</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Removed inputs">
+      <option name="closed" value="true" />
+      <created>1733128892959</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1733128892959</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="AOC2022 day6" />
+    <MESSAGE value="AOC2022 day7 ugly" />
+    <MESSAGE value="Upgrade gradle" />
+    <MESSAGE value="AOC2022 day7" />
+    <MESSAGE value="AOC2022 day8" />
+    <MESSAGE value="AOC2022 day9" />
+    <MESSAGE value="AOC2022 day11 part1" />
+    <MESSAGE value="AOC2022 day13" />
+    <MESSAGE value="AOC2022 day14" />
+    <MESSAGE value="AOC2022 day15" />
+    <MESSAGE value="AOC2023 day01" />
+    <MESSAGE value="AOC2023 day02" />
+    <MESSAGE value="AOC2023 day03" />
+    <MESSAGE value="AOC2023 day04" />
+    <MESSAGE value="AOC2023 day05" />
+    <MESSAGE value="AOC2023 day07" />
+    <MESSAGE value="AOC2023 day08" />
+    <MESSAGE value="AOC2024 day01" />
+    <MESSAGE value="AOC2024 day02" />
+    <MESSAGE value="Removed inputs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed inputs" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day16.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day16.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day16.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day15.java</url>
+          <line>189</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day18.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day03.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="189" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day05.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="257" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day07.java</url>
+          <line>133</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day08.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="358" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day08.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="374" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2023/Day13.java</url>
+          <line>112</line>
+          <option name="timeStamp" value="404" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Class2.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="420" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Class2.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="423" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Class2.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="424" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2024/Day02.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="432" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.example.aoc2020.Day14$Mask" memberName="value" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/advent_of_code_java$Main___Measure_time.ic" NAME="Main - Measure time Coverage Results" MODIFIED="1669923118844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.example.base.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/advent_of_code_java$_Gradle_with_args.ic" NAME=" Gradle with args Coverage Results" MODIFIED="1670661499862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/advent_of_code_java$Main.ic" NAME="Main Coverage Results" MODIFIED="1665830431874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>org.example.*</FILTER>
+    </SUITE>
+  </component>
+</project>
