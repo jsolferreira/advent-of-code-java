@@ -1,4 +1,4 @@
 package org.example.aoc.utils;
 
-public record Pair<T>(T left, T right) {
+public record Pair<L, R>(L left, R right) {
 }

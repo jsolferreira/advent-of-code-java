@@ -8,10 +8,10 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Day01 extends AoC2024Day<List<Pair<Integer>>> {
+class Day01 extends AoC2024Day<List<Pair<Integer, Integer>>> {
 
     @Override
-    protected List<Pair<Integer>> parseInput(String strInput) {
+    protected List<Pair<Integer, Integer>> parseInput(String strInput) {
 
         return strInput.lines()
                 .map(l -> l.split("\\s+"))
@@ -20,7 +20,7 @@ class Day01 extends AoC2024Day<List<Pair<Integer>>> {
     }
 
     @Override
-    protected Integer partOne(List<Pair<Integer>> input) {
+    protected Integer partOne(List<Pair<Integer, Integer>> input) {
 
         final List<Integer> first = input.stream().map(Pair::left).sorted().toList();
         final List<Integer> second = input.stream().map(Pair::right).sorted().toList();
@@ -35,7 +35,7 @@ class Day01 extends AoC2024Day<List<Pair<Integer>>> {
     }
 
     @Override
-    protected Long partTwo(List<Pair<Integer>> input) {
+    protected Long partTwo(List<Pair<Integer, Integer>> input) {
 
         final Map<Integer, Long> countMap = input.stream()
                 .map(Pair::right)
