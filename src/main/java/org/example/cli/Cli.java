@@ -3,7 +3,6 @@ package org.example.cli;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.DefaultParser;
-import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
@@ -67,13 +66,11 @@ public class Cli {
     private static void buildCommandLine(Options options, String[] args) {
 
         final CommandLineParser parser = new DefaultParser();
-        final HelpFormatter formatter = new HelpFormatter();
 
         try {
             cmd = parser.parse(options, args);
         } catch (ParseException e) {
             System.out.println(e.getMessage());
-            formatter.printHelp("utility-name", options);
 
             System.exit(1);
         }

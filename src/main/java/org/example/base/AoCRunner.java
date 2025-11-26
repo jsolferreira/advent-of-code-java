@@ -8,6 +8,7 @@ import org.example.aoc.aoc2021.AoC2021;
 import org.example.aoc.aoc2022.AoC2022;
 import org.example.aoc.aoc2023.AoC2023;
 import org.example.aoc.aoc2024.AoC2024;
+import org.example.aoc.aoc2025.AoC2025;
 import org.example.base.result.ResultsPrinter;
 import org.example.base.result.YearResult;
 import org.example.cli.Cli;
@@ -28,7 +29,8 @@ public class AoCRunner {
             "2021", AoC2021.class,
             "2022", AoC2022.class,
             "2023", AoC2023.class,
-            "2024", AoC2024.class
+            "2024", AoC2024.class,
+            "2025", AoC2025.class
     );
 
     private AoCRunner() {

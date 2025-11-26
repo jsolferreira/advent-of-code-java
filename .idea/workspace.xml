@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d4db848e-f937-4896-ab68-60d33e31972a" name="Changes" comment="Removed inputs" />
+    <list default="true" id="d4db848e-f937-4896-ab68-60d33e31972a" name="Changes" comment="AoC 2024 - Day 07">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2025/AoC2025.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2025/AoC2025Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/base/AoCRunner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cli/Cli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/cli/Cli.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,11 +121,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.Build advent-of-code-java.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
     "Gradle.advent-of-code-java [:Class.main()].executor": "Debug",
     "Gradle.advent-of-code-java [:Class2.main()].executor": "Debug",
     "Gradle.advent-of-code-java [:Main.main()].executor": "Debug",
     "Gradle.advent-of-code-java [run].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
@@ -120,7 +136,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/jorgeferreira/advent-of-code-java/src/main/resources",
+    "last_opened_file_path": "C:/Users/Jorge/work/advent-of-code-java/src/main/java/org/example/aoc/aoc2025",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -128,7 +144,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.25977013",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -140,11 +156,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\src\main\java\org\example\aoc\aoc2025" />
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\src\main\java\org\example\aoc" />
+      <recent name="C:\Users\Jorge\work\advent-of-code-java\src\main\resources\input\aoc2024" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/input/aoc2024" />
-      <recent name="$PROJECT_DIR$/src/main/resources/input" />
-      <recent name="$PROJECT_DIR$/src/main/java/org/example/aoc" />
-      <recent name="C:\Users\Jorge\work\advent-of-code-java\src\main\java\org\example" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Jorge\work\advent-of-code-java\gradle" />
@@ -241,7 +257,7 @@
         <option name="taskNames">
           <list>
             <option value="run" />
-            <option value="--args=&quot;-year=2024 -t -day=2&quot;" />
+            <option value="--args=&quot;-year=2024 -t -day=7&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -267,14 +283,6 @@
         <item itemvalue="Application.Class2" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.21565.193" />
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-IU-243.21565.193" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -531,7 +539,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733128892959</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="AoC 2024 - Day 07">
+      <option name="closed" value="true" />
+      <created>1733568578907</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1733568578907</updated>
+    </task>
+    <task id="LOCAL-00030" summary="AoC 2024 - Day 07">
+      <option name="closed" value="true" />
+      <created>1733569369338</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1733569369338</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -580,7 +604,8 @@
     <MESSAGE value="AOC2024 day01" />
     <MESSAGE value="AOC2024 day02" />
     <MESSAGE value="Removed inputs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed inputs" />
+    <MESSAGE value="AoC 2024 - Day 07" />
+    <option name="LAST_COMMIT_MESSAGE" value="AoC 2024 - Day 07" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -604,11 +629,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day15.java</url>
           <line>189</line>
           <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day18.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/aoc/aoc2022/Day17.java</url>

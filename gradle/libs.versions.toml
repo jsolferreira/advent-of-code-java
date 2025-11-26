@@ -1,5 +1,5 @@
 [versions]
-commons-cli = "1.9.0"
+commons-cli = "1.11.0"
 
 [libraries]
 commons-cli = { group = "commons-cli", name = "commons-cli", version.ref = "commons-cli" }
