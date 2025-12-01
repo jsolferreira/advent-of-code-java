@@ -19,6 +19,7 @@ public class AoC2025 extends AoCYear {
     protected List<Class<? extends Runnable<DayResult>>> getDays() {
 
         return List.of(
+                Day01.class
         );
     }
 
