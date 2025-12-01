@@ -25,10 +25,10 @@ class Day01 extends AoC2025Day<List<Pair<Day01.Direction, Integer>>> {
         int value = 50;
         int nZeroes = 0;
 
-        for (Pair<Direction, Integer> directionIntegerPair : input) {
+        for (Pair<Direction, Integer> rotation : input) {
 
-            final Direction direction = directionIntegerPair.left();
-            final int distance = directionIntegerPair.right();
+            final Direction direction = rotation.left();
+            final int distance = rotation.right();
 
             final int tempValue = direction == Direction.L
                     ? value - distance
@@ -50,10 +50,10 @@ class Day01 extends AoC2025Day<List<Pair<Day01.Direction, Integer>>> {
         int value = 50;
         int nZeroes = 0;
 
-        for (Pair<Direction, Integer> directionIntegerPair : input) {
+        for (Pair<Direction, Integer> rotation : input) {
 
-            final Direction direction = directionIntegerPair.left();
-            final int distance = directionIntegerPair.right();
+            final Direction direction = rotation.left();
+            final int distance = rotation.right();
             final int modDistance = distance % 100;
 
             nZeroes += distance / 100;
