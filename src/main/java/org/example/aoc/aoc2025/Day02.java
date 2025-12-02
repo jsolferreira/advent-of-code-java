@@ -42,9 +42,62 @@ class Day02 extends AoC2025Day<List<Pair<Long, Long>>> {
     }
 
     @Override
-    protected Integer partTwo(List<Pair<Long, Long>> input) {
+    protected Long partTwo(List<Pair<Long, Long>> input) {
 
-        return null;
+        long sum = 0;
+
+        for (Pair<Long, Long> pair : input) {
+
+            for (long i = pair.left(); i <= pair.right(); i++) {
+
+                if (isInvalidPart2(i)) {
+                    sum += i;
+                }
+            }
+        }
+
+        return sum;
+    }
+
+    private boolean isInvalidPart2(long n) {
+
+        final String string = String.valueOf(n);
+
+        for (int i = 1; i < string.length(); i++) {
+
+            if (validateChunks(string, i)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private boolean validateChunks(String s, int chunkSize) {
+
+        if (chunkSize >= s.length()) {
+            return false;
+        }
+
+        int i = 0;
+        String previousChunk = null;
+
+        for (; i + chunkSize < s.length(); i += chunkSize) {
+
+            final String chunk = s.substring(i, i + chunkSize);
+
+            if (previousChunk == null) {
+
+                previousChunk = chunk;
+            } else {
+
+                if (!previousChunk.equals(chunk)) {
+                    return false;
+                }
+            }
+        }
+
+        return previousChunk.equals(s.substring(i));
     }
 
     @Override
