@@ -20,7 +20,8 @@ public class AoC2025 extends AoCYear {
 
         return List.of(
                 Day01.class,
-                Day02.class
+                Day02.class,
+                Day03.class
         );
     }
 
