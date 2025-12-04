@@ -18,7 +18,7 @@ class Day04 extends AoC2025Day<char[][]> {
     @Override
     protected Long partOne(char[][] input) {
 
-        return traverseAndRemovableRolls(input, false);
+        return traverseAndCountRemovableRolls(input, false);
     }
 
     @Override
@@ -26,17 +26,17 @@ class Day04 extends AoC2025Day<char[][]> {
 
         long removableRolls = 0;
 
-        long z = traverseAndRemovableRolls(input, true);
+        long z = traverseAndCountRemovableRolls(input, true);
 
         while (z != 0) {
             removableRolls += z;
-            z = traverseAndRemovableRolls(input, true);
+            z = traverseAndCountRemovableRolls(input, true);
         }
 
         return removableRolls;
     }
 
-    private long traverseAndRemovableRolls(char[][] input, boolean markAsRemoved) {
+    private long traverseAndCountRemovableRolls(char[][] input, boolean markAsRemoved) {
 
         long removableRolls = 0;
 
