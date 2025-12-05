@@ -97,7 +97,6 @@ class Day05 extends AoC2025Day<Pair<List<Day05.Range>, List<Long>>> {
                 .map(Long::parseLong)
                 .toList();
 
-
         return new Pair<>(ranges, ids);
     }
 
