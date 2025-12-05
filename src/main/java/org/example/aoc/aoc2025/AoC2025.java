@@ -22,7 +22,8 @@ public class AoC2025 extends AoCYear {
                 Day01.class,
                 Day02.class,
                 Day03.class,
-                Day04.class
+                Day04.class,
+                Day05.class
         );
     }
 
