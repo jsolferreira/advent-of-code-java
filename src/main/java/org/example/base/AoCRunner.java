@@ -2,6 +2,7 @@ package org.example.base;
 
 import org.example.aoc.aoc2015.AoC2015;
 import org.example.aoc.aoc2016.AoC2016;
+import org.example.aoc.aoc2017.AoC2017;
 import org.example.aoc.aoc2019.AoC2019;
 import org.example.aoc.aoc2020.AoC2020;
 import org.example.aoc.aoc2021.AoC2021;
@@ -24,6 +25,7 @@ public class AoCRunner {
     private static final Map<String, Class<? extends AoCYear>> classes = Map.of(
             "2015", AoC2015.class,
             "2016", AoC2016.class,
+            "2017", AoC2017.class,
             "2019", AoC2019.class,
             "2020", AoC2020.class,
             "2021", AoC2021.class,

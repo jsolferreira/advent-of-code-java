@@ -16,7 +16,7 @@ class Day01 extends AoC2015Day<List<Character>> {
         return input.stream()
                 .reduce(0L,
                         (acc, val) -> val == '(' ? acc + 1 : acc - 1,
-                        (a, b) -> a);
+                        (a, _) -> a);
     }
 
     @Override
