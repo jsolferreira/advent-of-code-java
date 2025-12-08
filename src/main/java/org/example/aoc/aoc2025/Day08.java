@@ -5,13 +5,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.IntStream;
 
-class Day08 extends AoC2025Day<List<Day08.Position>> {
+class Day08 extends AoC2025Day<List<Day08.JunctionBox>> {
 
-    protected record Position(int x, int y, int z) {}
+    protected record JunctionBox(int x, int y, int z) {}
 
-    private record Distance(Position p, Position q, double distance) implements Comparable<Distance> {
+    private record Distance(JunctionBox junctionBox1, JunctionBox junctionBox2, double distance) implements Comparable<Distance> {
 
         @Override
         public int compareTo(Distance o) {
@@ -21,26 +20,26 @@ class Day08 extends AoC2025Day<List<Day08.Position>> {
     }
 
     @Override
-    protected List<Position> parseInput(String strInput) {
+    protected List<JunctionBox> parseInput(String strInput) {
 
         return strInput.lines()
                 .map(line -> line.split(","))
-                .map(split -> new Position(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2])))
+                .map(split -> new JunctionBox(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2])))
                 .toList();
     }
 
     @Override
-    protected Integer partOne(List<Position> input) {
+    protected Integer partOne(List<JunctionBox> input) {
 
         final TreeSet<Distance> distances = new TreeSet<>();
 
         for (int i = 0; i < input.size() - 1; i++) {
 
             double max = Double.MAX_VALUE;
-            final Position p = input.get(i);
+            final JunctionBox p = input.get(i);
             for (int j = i + 1; j < input.size(); j++) {
 
-                final Position q = input.get(j);
+                final JunctionBox q = input.get(j);
 
                 final double dist = distance(p, q);
 
@@ -58,42 +57,30 @@ class Day08 extends AoC2025Day<List<Day08.Position>> {
             }
         }
 
-        final List<Set<Position>> grouped = new ArrayList<>();
+        final List<Set<JunctionBox>> circuits = new ArrayList<>();
 
         for (Distance distance : distances) {
 
-            if (grouped.isEmpty()) {
-                final Set<Position> firstGroup = new HashSet<>();
-                firstGroup.add(distance.p());
-                firstGroup.add(distance.q());
-                grouped.add(firstGroup);
-            } else {
+            final Set<JunctionBox> circuit = new HashSet<>();
 
-                Integer[] array = IntStream.range(0, grouped.size())
-                        .filter(i -> grouped.get(i).contains(distance.p()) || grouped.get(i).contains(distance.q()))
-                        .boxed()
-                        .sorted((f1, f2) -> Long.compare(f2, f1))
-                        .toArray(Integer[]::new);
+            if (!circuits.isEmpty()) {
 
-                if (array.length == 0) {
-                    final Set<Position> newGroup = new HashSet<>();
-                    newGroup.add(distance.p());
-                    newGroup.add(distance.q());
-                    grouped.add(newGroup);
-                } else {
-                    Set<Position> newGroup = new HashSet<>();
-                    for (int i : array) {
-                        newGroup.addAll(grouped.get(i));
-                        grouped.remove(i);
-                    }
-                    newGroup.add(distance.p());
-                    newGroup.add(distance.q());
-                    grouped.add(newGroup);
+                final List<Set<JunctionBox>> matchingCircuits = circuits.stream()
+                        .filter(group -> group.contains(distance.junctionBox1()) || group.contains(distance.junctionBox2()))
+                        .toList();
+
+                for (Set<JunctionBox> group : matchingCircuits) {
+                    circuit.addAll(group);
+                    circuits.remove(group);
                 }
             }
+
+            circuit.add(distance.junctionBox1());
+            circuit.add(distance.junctionBox2());
+            circuits.add(circuit);
         }
 
-        return grouped.stream()
+        return circuits.stream()
                 .map(Set::size)
                 .sorted((f1, f2) -> Long.compare(f2, f1))
                 .limit(3)
@@ -102,16 +89,16 @@ class Day08 extends AoC2025Day<List<Day08.Position>> {
     }
 
     @Override
-    protected Integer partTwo(List<Position> input) {
+    protected Integer partTwo(List<JunctionBox> input) {
 
         final TreeSet<Distance> distances = new TreeSet<>();
 
         for (int i = 0; i < input.size() - 1; i++) {
 
-            final Position p = input.get(i);
+            final JunctionBox p = input.get(i);
             for (int j = i + 1; j < input.size(); j++) {
 
-                final Position q = input.get(j);
+                final JunctionBox q = input.get(j);
 
                 final double dist = distance(p, q);
 
@@ -119,53 +106,41 @@ class Day08 extends AoC2025Day<List<Day08.Position>> {
             }
         }
 
-        final List<Set<Position>> grouped = new ArrayList<>();
-        Distance connectingBoxes = null;
+        final List<Set<JunctionBox>> circuits = new ArrayList<>();
+        Distance desiredJunctionBoxes = null;
 
         for (Distance distance : distances) {
 
-            if (grouped.isEmpty()) {
-                final Set<Position> firstGroup = new HashSet<>();
-                firstGroup.add(distance.p());
-                firstGroup.add(distance.q());
-                grouped.add(firstGroup);
-            } else {
+            final Set<JunctionBox> circuit = new HashSet<>();
 
-                Integer[] array = IntStream.range(0, grouped.size())
-                        .filter(i -> grouped.get(i).contains(distance.p()) || grouped.get(i).contains(distance.q()))
-                        .boxed()
-                        .sorted((f1, f2) -> Long.compare(f2, f1))
-                        .toArray(Integer[]::new);
+            if (!circuits.isEmpty()) {
 
-                if (array.length == 0) {
-                    final Set<Position> newGroup = new HashSet<>();
-                    newGroup.add(distance.p());
-                    newGroup.add(distance.q());
-                    grouped.add(newGroup);
-                } else {
-                    Set<Position> newGroup = new HashSet<>();
-                    for (int i : array) {
-                        newGroup.addAll(grouped.get(i));
-                        grouped.remove(i);
-                    }
-                    newGroup.add(distance.p());
-                    newGroup.add(distance.q());
-                    grouped.add(newGroup);
+                final List<Set<JunctionBox>> matchingCircuits = circuits.stream()
+                        .filter(group -> group.contains(distance.junctionBox1()) || group.contains(distance.junctionBox2()))
+                        .toList();
 
-                    if (newGroup.size() == input.size()) {
-                        connectingBoxes = distance;
-                        break;
-                    }
+                for (Set<JunctionBox> group : matchingCircuits) {
+                    circuit.addAll(group);
+                    circuits.remove(group);
                 }
+            }
+
+            circuit.add(distance.junctionBox1());
+            circuit.add(distance.junctionBox2());
+            circuits.add(circuit);
+
+            if (circuit.size() == input.size()) {
+                desiredJunctionBoxes = distance;
+                break;
             }
         }
 
-        return connectingBoxes == null
+        return desiredJunctionBoxes == null
                 ? 0
-                : connectingBoxes.p().x() * connectingBoxes.q().x();
+                : desiredJunctionBoxes.junctionBox1().x() * desiredJunctionBoxes.junctionBox2().x();
     }
 
-    private double distance(Position p, Position q) {
+    private double distance(JunctionBox p, JunctionBox q) {
 
         final double x = (double) p.x() - q.x();
         final double y = (double) p.y() - q.y();
